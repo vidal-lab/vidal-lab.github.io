@@ -14,18 +14,29 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   const ITEMS_PER_PAGE = 50;
-  let currentTopic = 'All';
+  let selectedTopics = new Set();
   let currentPage = 1;
 
   function renderTabs() {
     const allTopics = ['All', ...data.topics];
-    tabsContainer.innerHTML = allTopics.map(t =>
-      `<button class="topic-tab${t === currentTopic ? ' active' : ''}" data-topic="${t}">${t}</button>`
-    ).join('');
+    const isAll = selectedTopics.size === 0;
+    tabsContainer.innerHTML = allTopics.map(t => {
+      const active = t === 'All' ? isAll : selectedTopics.has(t);
+      return `<button class="topic-tab${active ? ' active' : ''}" data-topic="${t}">${t}</button>`;
+    }).join('');
 
     tabsContainer.querySelectorAll('.topic-tab').forEach(btn => {
       btn.addEventListener('click', () => {
-        currentTopic = btn.dataset.topic;
+        const topic = btn.dataset.topic;
+        if (topic === 'All') {
+          selectedTopics.clear();
+        } else {
+          if (selectedTopics.has(topic)) {
+            selectedTopics.delete(topic);
+          } else {
+            selectedTopics.add(topic);
+          }
+        }
         currentPage = 1;
         renderTabs();
         renderPublications();
@@ -34,11 +45,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function getFiltered() {
-    if (currentTopic === 'All') return data.publications;
+    if (selectedTopics.size === 0) return data.publications;
     return data.publications.filter(p => {
       if (!p.keywords) return false;
-      return p.keywords.split(',').map(k => k.trim().toLowerCase())
-        .includes(currentTopic.toLowerCase());
+      const kw = p.keywords.split(',').map(k => k.trim().toLowerCase());
+      return [...selectedTopics].some(t => kw.includes(t.toLowerCase()));
     });
   }
 
