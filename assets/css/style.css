@@ -503,6 +503,12 @@ section h3 {
   padding: 28px 0;
   border-bottom: 1px solid var(--gray-200);
   animation: fadeSlideUp 0.5s ease both;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 16px;
+  row-gap: 12px;
+  align-items: start;
 }
 
 .research-topic-item:nth-child(1) { animation-delay: 0s; }
@@ -521,20 +527,28 @@ section h3 {
 }
 
 .research-topic-item h3 {
+  grid-row: 1;
+  grid-column: 1;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--gray-900);
-  margin-bottom: 12px;
+  margin-bottom: 0;
+  align-self: center;
 }
 
 .research-topic-item p {
+  grid-column: 1 / -1;
   font-size: 0.9rem;
   line-height: 1.7;
   color: var(--gray-700);
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .view-pubs-btn {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: center;
+  white-space: nowrap;
   display: inline-block;
   padding: 8px 18px;
   border: 1.5px solid var(--penn-blue);
