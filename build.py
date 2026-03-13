@@ -202,13 +202,24 @@ def build_index(data, _body):
             f'          <a href="{lk["url"]}" target="_blank">{e(lk["text"])}</a>\n'
             for lk in h.get("links", [])
         )
+        thumbnail = h.get("thumbnail", "")
+        thumb_html = ""
+        if thumbnail:
+            thumb_html = (
+                '        <div class="highlight-thumb">\n'
+                f'          <img src="{thumbnail}" alt="{e(h["title"])}">\n'
+                '        </div>\n'
+            )
         return (
             '      <div class="highlight-card">\n'
-            f'        <div class="venue">{e(h["venue"])}</div>\n'
-            f'        <h3>{e(h["title"])}</h3>\n'
-            f'        <p class="authors">{e(h["authors"])}</p>\n'
-            '        <div class="links">\n'
+            f'{thumb_html}'
+            '        <div class="highlight-body">\n'
+            f'          <div class="venue">{e(h["venue"])}</div>\n'
+            f'          <h3>{e(h["title"])}</h3>\n'
+            f'          <p class="authors">{e(h["authors"])}</p>\n'
+            '          <div class="links">\n'
             f"{links}"
+            "          </div>\n"
             "        </div>\n"
             "      </div>\n"
         )

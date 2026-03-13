@@ -285,13 +285,33 @@ section h3 {
   background: var(--penn-blue-bg);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 0;
+  overflow: hidden;
   transition: all var(--transition);
 }
 
+.highlight-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--gray-200);
+}
+
+.highlight-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.highlight-card .highlight-body {
+  padding: 20px 24px 24px;
+}
+
 .highlight-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--penn-blue);
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--penn-blue);
+  transform: translateY(-6px);
 }
 
 .highlight-card .venue {

@@ -20,16 +20,11 @@
       <li><a href="research.html">Research</a></li>
       <li><a href="teaching.html">Teaching</a></li>
       <li><a href="talks.html">Talks</a></li>
-      <li><a href="rene-vidal.html">About</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="hero-slideshow">
-    <img src="assets/img/group/group-1.jpg" alt="Vidal Lab Group Photo" class="hero-slide active">
-  </div>
-  <div class="hero-overlay"></div>
   <div class="container">
     <h1>Vidal Lab</h1>
     <p class="subtitle">Vision, Dynamics &amp; Learning Lab</p>
@@ -38,15 +33,25 @@
 </header>
 
 <main>
-  <!-- Research Summary -->
-  <section class="container">
-    <h2>About Us</h2>
-    <p>The Vidal Lab develops mathematical foundations for machine learning, computer vision, and dynamical systems. Our research spans deep learning theory, trustworthy and parsimonious representation learning, optimization, and continual learning. In computer vision, we work on 3D vision, video and image understanding, and vision-language models. We also apply these methods to biomedical data science, including medical image analysis and computer vision for health. Additionally, we study the theory of dynamical systems, including hybrid, multi-agent, and linear systems.</p>
-  </section>
+  <!-- Group Photo Carousel -->
+  <div class="container">
+    <div class="group-carousel">
+      <div class="carousel-track">
+        <img src="assets/img/group/group-1.jpg" alt="Vidal Lab Group Photo">
+        <img src="assets/img/group/group-6.jpg" alt="Vidal Lab Group Photo">
+      </div>
+      <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
+      <button class="carousel-btn next" aria-label="Next">&#10095;</button>
+      <div class="carousel-dots">
+        <button class="active" aria-label="Slide 1"></button>
+        <button aria-label="Slide 2"></button>
+      </div>
+    </div>
+  </div>
 
   <!-- News -->
   <section class="container">
-    <h2>Recent News</h2>
+    <h2>News</h2>
     <ul class="news-list">
       <li>
         <span class="date">Feb 2026</span>
@@ -73,84 +78,129 @@
     <div class="highlights-grid">
 
       <div class="highlight-card">
-        <div class="venue">ICML 2025</div>
-        <h3>Gradient Flow Provably Learns Robust Classifiers for Orthonormal GMMs</h3>
-        <p class="authors">Hancheng Min, René Vidal</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/gradient_flow.svg" alt="Gradient Flow Provably Learns Robust Classifiers for Orthonormal GMMs">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">ICML 2025</div>
+          <h3>Gradient Flow Provably Learns Robust Classifiers for Orthonormal GMMs</h3>
+          <p class="authors">Hancheng Min, René Vidal</p>
+          <div class="links">
           <a href="https://arxiv.org/abs/2502.03720" target="_blank">Paper</a>
+          </div>
         </div>
       </div>
 
       <div class="highlight-card">
-        <div class="venue">CVPR 2025</div>
-        <h3>Disentangling Safe and Unsafe Image Corruptions via Anisotropy and Locality</h3>
-        <p class="authors">Meghna Ramchandran, Ambar Pal, Jeremias Sulam, René Vidal</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/disentangling.svg" alt="Disentangling Safe and Unsafe Image Corruptions via Anisotropy and Locality">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">CVPR 2025</div>
+          <h3>Disentangling Safe and Unsafe Image Corruptions via Anisotropy and Locality</h3>
+          <p class="authors">Meghna Ramchandran, Ambar Pal, Jeremias Sulam, René Vidal</p>
+          <div class="links">
           <a href="https://arxiv.org/abs/2502.12345" target="_blank">Paper</a>
+          </div>
         </div>
       </div>
 
       <div class="highlight-card">
-        <div class="venue">MICCAI 2025</div>
-        <h3>IP-CRR: Information Pursuit for Interpretable Classification of Chest Radiology Reports</h3>
-        <p class="authors">Yuyan Ge, Ryan Chan, Pablo Messina, René Vidal</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/ip_crr.svg" alt="IP-CRR: Information Pursuit for Interpretable Classification of Chest Radiology Reports">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">MICCAI 2025</div>
+          <h3>IP-CRR: Information Pursuit for Interpretable Classification of Chest Radiology Reports</h3>
+          <p class="authors">Yuyan Ge, Ryan Chan, Pablo Messina, René Vidal</p>
+          <div class="links">
           <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uT8fgagAAAAJ&sortby=pubdate&citation_for_view=uT8fgagAAAAJ:27qsyVibG6YC" target="_blank">Paper</a>
+          </div>
         </div>
       </div>
 
       <div class="highlight-card">
-        <div class="venue">Preprint 2025</div>
-        <h3>Conformal Information Pursuit for Interactively Guiding Large Language Models</h3>
-        <p class="authors">Ryan Chan, Yuyan Ge, Edgar Dobriban, Hamed Hassani, René Vidal</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/conformal_ip.svg" alt="Conformal Information Pursuit for Interactively Guiding Large Language Models">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">Preprint 2025</div>
+          <h3>Conformal Information Pursuit for Interactively Guiding Large Language Models</h3>
+          <p class="authors">Ryan Chan, Yuyan Ge, Edgar Dobriban, Hamed Hassani, René Vidal</p>
+          <div class="links">
           <a href="https://ryanchankh.github.io/ConformalInformationPursuit/" target="_blank">Project</a>
           <a href="https://arxiv.org/abs/2507.03279" target="_blank">Paper</a>
+          </div>
         </div>
       </div>
 
       <div class="highlight-card">
-        <div class="venue">Preprint 2025</div>
-        <h3>SECA: Semantically Equivalent and Coherent Attacks for Eliciting LLM Hallucinations</h3>
-        <p class="authors">Buyun Liang, Liangzu Peng, Jinqi Luo, Darshan Thaker, Ryan Chan, René Vidal</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/seca.svg" alt="SECA: Semantically Equivalent and Coherent Attacks for Eliciting LLM Hallucinations">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">Preprint 2025</div>
+          <h3>SECA: Semantically Equivalent and Coherent Attacks for Eliciting LLM Hallucinations</h3>
+          <p class="authors">Buyun Liang, Liangzu Peng, Jinqi Luo, Darshan Thaker, Ryan Chan, René Vidal</p>
+          <div class="links">
           <a href="https://arxiv.org/abs/2510.04398" target="_blank">Paper</a>
+          </div>
         </div>
       </div>
 
       <div class="highlight-card">
-        <div class="venue">Preprint 2025</div>
-        <h3>Voyaging into Unbounded Dynamic Scenes from a Single View</h3>
-        <p class="authors">Fengrui Tian, Tianjiao Ding, Jinqi Luo, Hancheng Min, René Vidal</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/voyaging.svg" alt="Voyaging into Unbounded Dynamic Scenes from a Single View">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">Preprint 2025</div>
+          <h3>Voyaging into Unbounded Dynamic Scenes from a Single View</h3>
+          <p class="authors">Fengrui Tian, Tianjiao Ding, Jinqi Luo, Hancheng Min, René Vidal</p>
+          <div class="links">
           <a href="https://arxiv.org/abs/2507.04183" target="_blank">Paper</a>
+          </div>
         </div>
       </div>
 
       <div class="highlight-card">
-        <div class="venue">Preprint 2026</div>
-        <h3>Hierarchical Concept Embedding &amp; Pursuit for Interpretable Image Classification</h3>
-        <p class="authors">Nghia Nguyen, Tianjiao Ding, René Vidal</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/hierarchical.svg" alt="Hierarchical Concept Embedding &amp; Pursuit for Interpretable Image Classification">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">Preprint 2026</div>
+          <h3>Hierarchical Concept Embedding &amp; Pursuit for Interpretable Image Classification</h3>
+          <p class="authors">Nghia Nguyen, Tianjiao Ding, René Vidal</p>
+          <div class="links">
           <a href="https://arxiv.org/abs/2602.11448" target="_blank">Paper</a>
+          </div>
         </div>
       </div>
 
       <div class="highlight-card">
-        <div class="venue">IEEE TBE 2025</div>
-        <h3>CAMI-2DNet: Computerized Assessment of Motor Imitation for Distinguishing Autism in Video</h3>
-        <p class="authors">Kaleab Kinfu, Carolina Pacheco, et al., René Vidal</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/cami.svg" alt="CAMI-2DNet: Computerized Assessment of Motor Imitation for Distinguishing Autism in Video">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">IEEE TBE 2025</div>
+          <h3>CAMI-2DNet: Computerized Assessment of Motor Imitation for Distinguishing Autism in Video</h3>
+          <p class="authors">Kaleab Kinfu, Carolina Pacheco, et al., René Vidal</p>
+          <div class="links">
           <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uT8fgagAAAAJ&sortby=pubdate&citation_for_view=uT8fgagAAAAJ:L_at8tGC9oEC" target="_blank">Paper</a>
+          </div>
         </div>
       </div>
 
       <div class="highlight-card">
-        <div class="venue">Cambridge University Press 2022</div>
-        <h3>Optimization Landscape of Neural Networks</h3>
-        <p class="authors">René Vidal, Zhihui Zhu, Benjamin D. Haeffele</p>
-        <div class="links">
+        <div class="highlight-thumb">
+          <img src="assets/img/thumbnails/optimization.svg" alt="Optimization Landscape of Neural Networks">
+        </div>
+        <div class="highlight-body">
+          <div class="venue">Cambridge University Press 2022</div>
+          <h3>Optimization Landscape of Neural Networks</h3>
+          <p class="authors">René Vidal, Zhihui Zhu, Benjamin D. Haeffele</p>
+          <div class="links">
           <a href="https://www.cambridge.org/core/books/optimization-landscape-of-neural-networks/" target="_blank">Book</a>
+          </div>
         </div>
       </div>
 
@@ -162,16 +212,25 @@
   <div class="container">
     <div class="footer-grid">
       <div>
+        <h4>Vidal Lab</h4>
+        <p>Vision, Dynamics &amp; Learning Lab<br>
+        University of Pennsylvania<br>
+        Department of Electrical and Systems Engineering<br>
+        Philadelphia, PA</p>
       </div>
       <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href="people.html">People</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="talks.html">Talks</a></li>
+        </ul>
       </div>
       <div>
         <h4>Contact</h4>
         <p>Prof. René Vidal<br>
         <a href="mailto:vidalr@seas.upenn.edu">vidalr@seas.upenn.edu</a></p>
-        <p>University of Pennsylvania<br>
-        Department of Electrical and Systems Engineering<br>
-        Philadelphia, PA</p>
       </div>
     </div>
     <div class="footer-bottom">
