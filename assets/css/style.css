@@ -2,6 +2,7 @@
   --penn-blue: #011F5B;
   --penn-red: #990000;
   --penn-blue-light: #1a3a7a;
+  --penn-blue-bg: #e8eef7;
   --gray-50: #f8f9fa;
   --gray-100: #f0f1f3;
   --gray-200: #e2e4e8;
@@ -125,14 +126,20 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 section {
-  margin-bottom: 64px;
+  margin-bottom: 80px;
+  margin-top: 0;
+}
+
+main > section:first-child {
+  margin-top: 48px;
 }
 
 section h2 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--penn-blue);
-  margin-bottom: 24px;
+  margin-top: 16px;
+  margin-bottom: 28px;
   padding-bottom: 12px;
   border-bottom: 2px solid var(--gray-200);
 }
@@ -146,20 +153,37 @@ section h3 {
 
 /* ===== HOME: HERO ===== */
 .hero {
-  background: linear-gradient(135deg, var(--penn-blue) 0%, var(--penn-blue-light) 60%, #2a5eaa 100%);
+  background: var(--penn-blue);
   color: var(--white);
-  padding: 80px 0 64px;
+  padding: 160px 0 140px;
   position: relative;
   overflow: hidden;
 }
 
-.hero::after {
-  content: '';
+.hero-slideshow {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="80" cy="20" r="30" fill="rgba(255,255,255,0.03)"/><circle cx="20" cy="80" r="40" fill="rgba(255,255,255,0.02)"/></svg>');
-  background-size: cover;
-  pointer-events: none;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(1, 31, 91, 0.65);
+  z-index: 1;
 }
 
 .hero .container { position: relative; z-index: 1; }
@@ -248,7 +272,7 @@ section h3 {
 
 /* ===== HOME: NEWS / HIGHLIGHTS ===== */
 .highlights-grid-section {
-  margin-top: 48px;
+  margin-top: 0;
 }
 
 .highlights-grid {
@@ -258,7 +282,7 @@ section h3 {
 }
 
 .highlight-card {
-  background: var(--white);
+  background: var(--penn-blue-bg);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius);
   padding: 28px;
@@ -422,7 +446,7 @@ section h3 {
   color: var(--gray-600);
   cursor: pointer;
   position: relative;
-  transition: color var(--transition);
+  transition: color var(--transition), border-bottom-color 0.3s ease;
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
 }
@@ -438,15 +462,38 @@ section h3 {
 
 .research-category-panel {
   display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .research-category-panel.active {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.research-category-panel.fade-out {
+  display: block;
+  opacity: 0;
+  transform: translateY(-12px);
 }
 
 .research-topic-item {
   padding: 28px 0;
   border-bottom: 1px solid var(--gray-200);
+  animation: fadeSlideUp 0.5s ease both;
+}
+
+.research-topic-item:nth-child(1) { animation-delay: 0s; }
+.research-topic-item:nth-child(2) { animation-delay: 0.08s; }
+.research-topic-item:nth-child(3) { animation-delay: 0.16s; }
+.research-topic-item:nth-child(4) { animation-delay: 0.24s; }
+.research-topic-item:nth-child(5) { animation-delay: 0.32s; }
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .research-topic-item:last-child {
@@ -486,6 +533,16 @@ section h3 {
 }
 
 /* ===== RESEARCH / PUBLICATIONS ===== */
+#publications-section.highlight {
+  animation: highlightPulse 0.8s ease;
+}
+
+@keyframes highlightPulse {
+  0% { background: transparent; }
+  30% { background: var(--penn-blue-bg); }
+  100% { background: transparent; }
+}
+
 .topic-hint {
   font-size: 0.85rem;
   color: var(--gray-600);
@@ -523,6 +580,23 @@ section h3 {
   color: var(--white);
   border-color: var(--penn-blue);
 }
+
+#publications-container {
+  transition: opacity 0.3s ease;
+}
+
+#publications-container.fade-out {
+  opacity: 0;
+}
+
+.pub-year-group {
+  animation: fadeSlideUp 0.4s ease both;
+}
+
+.pub-year-group:nth-child(2) { animation-delay: 0.05s; }
+.pub-year-group:nth-child(3) { animation-delay: 0.1s; }
+.pub-year-group:nth-child(4) { animation-delay: 0.15s; }
+.pub-year-group:nth-child(5) { animation-delay: 0.2s; }
 
 .pub-year-group h3 {
   font-size: 1.2rem;
@@ -579,6 +653,27 @@ section h3 {
   color: var(--gray-600);
   margin-left: 8px;
   vertical-align: middle;
+}
+
+.pub-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.pub-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.pub-tag:hover {
+  opacity: 0.8;
 }
 
 .pub-count {

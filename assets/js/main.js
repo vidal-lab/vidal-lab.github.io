@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Hero banner slideshow
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  if (heroSlides.length > 1) {
+    let heroIdx = 0;
+    setInterval(() => {
+      heroSlides[heroIdx].classList.remove('active');
+      heroIdx = (heroIdx + 1) % heroSlides.length;
+      heroSlides[heroIdx].classList.add('active');
+    }, 5000);
+  }
+
   // Group photo carousel
   const track = document.querySelector('.carousel-track');
   if (track) {
@@ -41,12 +52,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   categoryTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      categoryTabs.forEach(t => t.classList.remove('active'));
-      categoryPanels.forEach(p => p.classList.remove('active'));
+      const currentPanel = document.querySelector('.research-category-panel.active');
+      const nextPanel = document.getElementById('panel-' + tab.dataset.category);
+      if (currentPanel === nextPanel) return;
 
+      categoryTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      const panel = document.getElementById('panel-' + tab.dataset.category);
-      if (panel) panel.classList.add('active');
+
+      if (currentPanel) {
+        currentPanel.style.opacity = '0';
+        currentPanel.style.transform = 'translateY(-12px)';
+        setTimeout(() => {
+          currentPanel.classList.remove('active');
+          currentPanel.style.opacity = '';
+          currentPanel.style.transform = '';
+          if (nextPanel) {
+            nextPanel.classList.add('active');
+            // Re-trigger item animations
+            nextPanel.querySelectorAll('.research-topic-item').forEach(item => {
+              item.style.animation = 'none';
+              item.offsetHeight; // force reflow
+              item.style.animation = '';
+            });
+          }
+        }, 250);
+      } else if (nextPanel) {
+        nextPanel.classList.add('active');
+      }
     });
   });
 
@@ -60,6 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const pubSection = document.getElementById('publications-section');
       if (pubSection) {
         pubSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        pubSection.classList.remove('highlight');
+        void pubSection.offsetHeight;
+        pubSection.classList.add('highlight');
+        pubSection.addEventListener('animationend', () => pubSection.classList.remove('highlight'), { once: true });
       }
     });
   });
