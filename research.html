@@ -33,7 +33,124 @@
 
 <main class="container">
 
-  <section>
+  <!-- Research Topics Section -->
+  <section class="research-topics-section">
+    <h2>Topics</h2>
+
+    <div class="research-category-tabs">
+      <button class="research-category-tab active" data-category="ml">Machine Learning</button>
+      <button class="research-category-tab" data-category="cv">Computer Vision</button>
+      <button class="research-category-tab" data-category="med">AI in Medicine</button>
+      <button class="research-category-tab" data-category="dyn">Dynamical Systems</button>
+    </div>
+
+    <!-- Machine Learning -->
+    <div class="research-category-panel active" id="panel-ml">
+
+      <div class="research-topic-item">
+        <h3>Deep Learning Theory</h3>
+        <p>Deep Learning Theory encompasses the foundational mathematical principles that underpin modern neural networks and their capabilities. This field investigates nonconvex optimization techniques essential for training deep networks with billions of parameters, despite the theoretical challenges of finding global minima in highly complex loss landscapes. Learning dynamics research explores how different network architectures and training protocols affect convergence, stability, and performance over time. The concept of implicit bias helps explain why overparameterized networks tend to converge to specific solutions despite having infinitely many possible solutions that fit training data. Generalization research addresses the fundamental question of why deep networks perform well on unseen data despite their vast capacity to overfit, developing theoretical frameworks that connect architecture design, optimization algorithms, and statistical learning principles.</p>
+        <button class="view-pubs-btn" data-topics="Deep Learning">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Trustworthy Machine Learning</h3>
+        <p>Trustworthy Machine Learning focuses on developing reliable and accountable AI systems that can be safely deployed in critical real-world applications. Interpretability research aims to create models and methods that allow humans to understand how AI systems reach particular decisions, addressing the "black box" problem through techniques like feature attribution, concept-based explanations, and model distillation. Robustness investigations develop algorithms and frameworks that maintain performance under various challenges, including adversarial attacks (subtle input manipulations designed to fool models), distribution shifts (when deployment data differs from training data), and noisy or incomplete inputs that might occur in practical scenarios. Together, these components establish the theoretical and practical foundations needed to develop AI systems that can be trusted with high-stakes decisions in healthcare, transportation, security, and other critical domains.</p>
+        <button class="view-pubs-btn" data-topics="Adversarial Robustness,Interpretable AI">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Parsimonious Representation Learning</h3>
+        <p>Parsimonious Representation Learning focuses on discovering compact, efficient ways to represent complex data while preserving essential information. Matrix factorization techniques decompose high-dimensional data matrices into lower-dimensional components, revealing latent structures and enabling applications like recommendation systems and dimensionality reduction. Subspace clustering methods identify and group data points that lie near lower-dimensional linear or affine subspaces within the ambient space, allowing for more accurate clustering of high-dimensional data with complex geometric structures. Manifold learning approaches discover nonlinear, low-dimensional structures that capture the intrinsic geometry of data, assuming that high-dimensional observations often lie on or near a lower-dimensional manifold, thus enabling more effective visualization, compression, and feature extraction while respecting the underlying data geometry.</p>
+        <button class="view-pubs-btn" data-topics="Sparse Optimization,Manifold clustering,GPCA,Boosting">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Continual Learning</h3>
+        <p>Continual Learning addresses the challenge of developing machine learning systems that can acquire knowledge incrementally over time without forgetting previously learned information — a capability that comes naturally to humans but poses significant difficulties for artificial systems. This field explores strategies to overcome catastrophic forgetting, where neural networks tend to overwrite earlier knowledge when trained on new tasks, through techniques like regularization methods that identify and protect important parameters, replay mechanisms that strategically revisit past experiences, and architectural approaches that allocate specific network components to different tasks. Continual learning research spans theoretical investigations of knowledge transfer and interference, algorithmic innovations for balancing stability and plasticity, and practical applications in scenarios where models must adapt to changing environments or sequentially presented tasks, such as in robotics, personalized recommendation systems, and healthcare monitoring.</p>
+        <button class="view-pubs-btn" data-topics="Continual Learning">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Optimization</h3>
+        <p>Optimization research in machine learning develops mathematical frameworks and algorithms to efficiently find optimal parameters or solutions across diverse learning problems. Optimization on manifolds extends traditional optimization techniques to handle constraints where solutions must lie on curved mathematical spaces, enabling applications in computer vision, robotics, and scientific computing. Optimization for learning focuses on developing specialized algorithms tailored to the unique challenges of training machine learning models, addressing issues like saddle points, local minima, and the interplay between optimization dynamics and generalization performance. The intersection of optimization and dynamical systems provides theoretical tools to analyze convergence properties and training trajectories, treating optimization algorithms as discrete or continuous dynamical systems. Distributed optimization techniques enable training models across multiple machines or devices while minimizing communication costs, becoming increasingly important for large-scale learning problems and federated learning scenarios where data privacy is paramount.</p>
+        <button class="view-pubs-btn" data-topics="Optimization">View Publications &rarr;</button>
+      </div>
+
+    </div>
+
+    <!-- Computer Vision -->
+    <div class="research-category-panel" id="panel-cv">
+
+      <div class="research-topic-item">
+        <h3>3D Vision</h3>
+        <p>3D vision research develops methods for recovering and understanding the three-dimensional structure of scenes from two-dimensional images. This includes structure from motion, multi-view stereo, 3D reconstruction, and depth estimation techniques that enable machines to perceive and reason about the geometry of the physical world. Our work in this area focuses on motion segmentation, where the goal is to separate independently moving objects in video sequences using subspace methods, sparse and low-rank representations, and deep learning to handle challenges including noise, occlusion, and degenerate configurations. We also study omnidirectional and catadioptric imaging systems that provide 360-degree fields of view for applications in autonomous navigation and robotics.</p>
+        <button class="view-pubs-btn" data-topics="3D motion segmentation,2D motion segmentation,omnidirectional vision">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Video</h3>
+        <p>Video understanding research develops computational methods for analyzing temporal visual data, including action recognition, event detection, video segmentation, and summarization. Our work on dynamic textures models spatiotemporal visual patterns such as flames, water, and foliage that exhibit stochastic, repetitive motion, combining linear dynamical systems with appearance models to capture both spatial structure and temporal evolution. We also develop methods for motion segmentation in video, separating independently moving objects using algebraic and statistical approaches that leverage the low-dimensional structure of feature trajectories.</p>
+        <button class="view-pubs-btn" data-topics="Dynamic textures,2D motion segmentation,3D motion segmentation">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Image</h3>
+        <p>Image analysis research focuses on extracting meaningful information from static visual data, including object recognition, scene understanding, semantic segmentation, and image classification. Our work addresses the development of robust feature representations and learning algorithms that enable machines to interpret visual content at multiple levels of abstraction. This includes methods for nonrigid shape analysis that represent, compare, and reconstruct deformable objects such as human bodies and biological structures, as well as generalized principal component analysis for modeling data drawn from unions of subspaces.</p>
+        <button class="view-pubs-btn" data-topics="Computer Vision,nonrigid shape,GPCA">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Vision and Language</h3>
+        <p>Vision and language research explores the intersection of computer vision and natural language processing, developing multimodal models that jointly reason about visual and textual information. This includes tasks such as image captioning, visual question answering, visual grounding, and text-to-image generation. Our work in this area investigates how interpretable and concept-based representations can bridge the gap between visual perception and linguistic understanding, enabling AI systems to explain their visual reasoning in human-understandable terms and to follow natural language instructions for visual tasks.</p>
+        <button class="view-pubs-btn" data-topics="Computer Vision,Interpretable AI">View Publications &rarr;</button>
+      </div>
+
+    </div>
+
+    <!-- AI in Medicine -->
+    <div class="research-category-panel" id="panel-med">
+
+      <div class="research-topic-item">
+        <h3>Biomedical Image Analysis</h3>
+        <p>Biomedical image analysis applies advanced machine learning and computer vision techniques to medical imaging, developing automated systems for interpreting radiology scans, pathology slides, and other clinical images. This research addresses challenges unique to medical data, including limited labeled datasets, class imbalance, and the critical need for interpretable and reliable predictions. Applications include automated analysis of radiology reports, detection of abnormalities in medical scans, surgical tool tracking, and tissue classification, all aimed at improving diagnostic accuracy and clinical workflow efficiency.</p>
+        <button class="view-pubs-btn" data-topics="Biomedical">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Computer Vision for Health</h3>
+        <p>Computer vision for health develops visual recognition and analysis systems tailored to healthcare settings, extending beyond traditional medical imaging to encompass broader health-related applications. This includes detection of neurological conditions from behavioral video, monitoring of patient movements and activities, analysis of surgical procedures, and physiological signal processing. Our work emphasizes interpretable AI methods that enable clinicians to understand and trust model predictions, using concept-based explanations and information-theoretic approaches to bridge the gap between high-performing models and the transparency requirements of clinical practice.</p>
+        <button class="view-pubs-btn" data-topics="Biomedical,Interpretable AI,Computer Vision">View Publications &rarr;</button>
+      </div>
+
+    </div>
+
+    <!-- Dynamical Systems -->
+    <div class="research-category-panel" id="panel-dyn">
+
+      <div class="research-topic-item">
+        <h3>Hybrid Systems</h3>
+        <p>Hybrid systems research studies mathematical models and computational methods for systems that exhibit both continuous and discrete dynamic behavior. These systems arise naturally in many engineering applications where continuous physical processes interact with discrete logic, switching, or decision-making components. Hybrid system identification develops algorithms to learn the parameters and structure of hybrid models from observed data, addressing challenges such as determining the number of discrete modes, estimating continuous dynamics within each mode, and classifying data points to their corresponding modes. This research combines tools from systems theory, algebraic geometry, and machine learning to handle the inherent combinatorial complexity of hybrid system analysis.</p>
+        <button class="view-pubs-btn" data-topics="Hybrid systems,Hybrid system identification">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Multi-agent Systems</h3>
+        <p>Multi-agent systems research develops algorithms and theoretical frameworks for coordinating groups of autonomous agents to achieve collective goals. This includes formation control strategies for multi-robot systems, distributed consensus algorithms, and vision-based coordination that uses onboard cameras for relative positioning. Our work also addresses the mathematical tools for measuring distances and similarity between complex dynamical systems, enabling clustering, classification, and retrieval across diverse applications. These methods connect geometry, topology, and control theory to practical engineering problems in robotics, autonomous vehicles, and networked systems.</p>
+        <button class="view-pubs-btn" data-topics="formation control,Distances">View Publications &rarr;</button>
+      </div>
+
+      <div class="research-topic-item">
+        <h3>Linear Systems</h3>
+        <p>Linear systems research provides the mathematical foundations for modeling, analyzing, and controlling systems governed by linear dynamics. This includes realization theory, which constructs state-space models from input-output data, connecting observable behavior to internal system representations. Our work extends classical linear realization theory to more complex settings including switched systems and systems with structured dynamics, developing minimal realizations and computationally efficient algorithms for model construction. These theoretical results underpin system identification, model reduction, and control design across a wide range of engineering applications.</p>
+        <button class="view-pubs-btn" data-topics="Realization theory">View Publications &rarr;</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications-section">
     <h2>Publications by Topic</h2>
     <p class="topic-hint">Select one or more topics to filter publications</p>
     <div id="topic-tabs" class="topic-tabs"></div>

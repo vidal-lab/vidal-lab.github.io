@@ -398,6 +398,93 @@ section h3 {
   border-radius: 50%;
 }
 
+/* ===== RESEARCH TOPICS ===== */
+.research-topics-section h2 {
+  text-align: center;
+  font-size: 1.75rem;
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+.research-category-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--gray-200);
+  margin-bottom: 0;
+}
+
+.research-category-tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  cursor: pointer;
+  position: relative;
+  transition: color var(--transition);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+
+.research-category-tab:hover {
+  color: var(--penn-blue);
+}
+
+.research-category-tab.active {
+  color: var(--penn-blue);
+  border-bottom-color: var(--penn-blue);
+}
+
+.research-category-panel {
+  display: none;
+}
+
+.research-category-panel.active {
+  display: block;
+}
+
+.research-topic-item {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.research-topic-item:last-child {
+  border-bottom: none;
+}
+
+.research-topic-item h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+}
+
+.research-topic-item p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+  margin-bottom: 16px;
+}
+
+.view-pubs-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1.5px solid var(--penn-blue);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--penn-blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.view-pubs-btn:hover {
+  background: var(--penn-blue);
+  color: var(--white);
+}
+
 /* ===== RESEARCH / PUBLICATIONS ===== */
 .topic-hint {
   font-size: 0.85rem;
@@ -759,6 +846,9 @@ section h3 {
   .people-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 16px; }
 
   .alumni-list { column-count: 1; }
+
+  .research-category-tabs { flex-wrap: wrap; }
+  .research-category-tab { padding: 10px 16px; font-size: 0.88rem; }
 
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
 

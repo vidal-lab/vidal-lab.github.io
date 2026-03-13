@@ -114,6 +114,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  window.setTopicFilter = function(topics) {
+    selectedTopics.clear();
+    topics.forEach(t => selectedTopics.add(t));
+    currentPage = 1;
+    renderTabs();
+    renderPublications();
+  };
+
   renderTabs();
   renderPublications();
 });

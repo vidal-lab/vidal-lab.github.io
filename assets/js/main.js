@@ -34,4 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setInterval(() => goTo(current + 1), 5000);
   }
+
+  // Research Topics category tabs
+  const categoryTabs = document.querySelectorAll('.research-category-tab');
+  const categoryPanels = document.querySelectorAll('.research-category-panel');
+
+  categoryTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      categoryTabs.forEach(t => t.classList.remove('active'));
+      categoryPanels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      const panel = document.getElementById('panel-' + tab.dataset.category);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // "View Publications" buttons set topic filters and scroll to publications
+  document.querySelectorAll('.view-pubs-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const topics = btn.dataset.topics.split(',').map(t => t.trim());
+      if (typeof window.setTopicFilter === 'function') {
+        window.setTopicFilter(topics);
+      }
+      const pubSection = document.getElementById('publications-section');
+      if (pubSection) {
+        pubSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 });
