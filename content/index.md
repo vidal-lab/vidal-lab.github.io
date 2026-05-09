@@ -17,7 +17,7 @@ project_carousel:
     authors: "Kwan Ho Ryan Chan, Yuyan Ge, Edgar Dobriban, Hamed Hassani, René Vidal"
     venue: "NeurIPS 2025"
     description: "We extend the information pursuit framework to large language models with conformal calibration, enabling LLMs to ask informative, targeted questions to disambiguate user intent under uncertainty guarantees."
-    image: assets/img/projects/conformal_ip.svg
+    image: assets/img/projects/conformal_ip.png
     project_url: "https://ryanchankh.github.io/ConformalInformationPursuit/"
     paper_url: "https://arxiv.org/abs/2507.03279"
 
@@ -26,8 +26,8 @@ project_carousel:
     authors: "Fengrui Tian, Tianjiao Ding, Jinqi Luo, Hancheng Min, René Vidal"
     venue: "ICCV 2025"
     description: "Generates long, perpetually unfolding dynamic 3D scenes from a single image by combining diffusion-based novel-view synthesis with temporal consistency constraints."
-    image: assets/img/projects/voyaging.svg
-    project_url: "https://tianfr.github.io/Voyager/"
+    image: assets/img/projects/voyaging.gif
+    project_url: "https://tianfr.github.io/DynamicVoyager/"
     paper_url: "https://arxiv.org/abs/2507.04183"
 
   - title: "SECA"
@@ -35,7 +35,7 @@ project_carousel:
     authors: "Buyun Liang, Liangzu Peng, Jinqi Luo, Darshan Thaker, Kwan Ho Ryan Chan, René Vidal"
     venue: "NeurIPS 2025"
     description: "A constrained optimization framework that finds semantically equivalent and coherent prompt rewrites that reliably trigger hallucinations in modern large language models."
-    image: assets/img/projects/seca.svg
+    image: assets/img/projects/seca.png
     paper_url: "https://arxiv.org/abs/2510.04398"
 
   - title: "IP-CRR"
@@ -43,7 +43,7 @@ project_carousel:
     authors: "Yuyan Ge, Kwan Ho Ryan Chan, Pablo Messina, René Vidal"
     venue: "MICCAI 2025"
     description: "An interpretable-by-design system that classifies chest radiology reports by sequentially querying the most informative clinical concepts."
-    image: assets/img/projects/ip_crr.svg
+    image: assets/img/projects/ip_crr.png
     paper_url: "https://arxiv.org/abs/2505.00191"
 
   - title: "Disentangling Safe & Unsafe Corruptions"
@@ -51,7 +51,7 @@ project_carousel:
     authors: "Ramchandran Muthukumar, Ambar Pal, Jeremias Sulam, René Vidal"
     venue: "CVPR 2025"
     description: "A new threat model that distinguishes safe from unsafe image corruptions through anisotropic, locality-aware geometric analysis of perturbations."
-    image: assets/img/projects/disentangling.svg
+    image: assets/img/projects/disentangling.png
     paper_url: "https://arxiv.org/abs/2501.18098"
 
   - title: "CAMI-2DNet"
@@ -59,7 +59,7 @@ project_carousel:
     authors: "Kaleab A. Kinfu, Carolina Pacheco, et al., René Vidal"
     venue: "IEEE TBME 2025"
     description: "A 2D video-based deep network that quantifies motor imitation ability as a behavioral biomarker for autism spectrum disorder."
-    image: assets/img/projects/cami.svg
+    image: assets/img/projects/cami.png
     paper_url: "https://arxiv.org/abs/2501.08609"
 
   - title: "Hierarchical Concept Embedding & Pursuit"
@@ -67,7 +67,7 @@ project_carousel:
     authors: "Nghia Nguyen, Tianjiao Ding, René Vidal"
     venue: "Preprint 2026"
     description: "A hierarchical concept-based classifier that explains predictions through a tree of human-understandable visual attributes."
-    image: assets/img/projects/hierarchical.svg
+    image: assets/img/projects/hierarchical.png
     paper_url: "https://arxiv.org/abs/2602.11448"
 
   - title: "Gradient Flow Learns Robust Classifiers"
@@ -75,7 +75,7 @@ project_carousel:
     authors: "Hancheng Min, René Vidal"
     venue: "ICML 2025"
     description: "Proves that vanilla gradient flow on a two-layer network provably converges to a maximally-robust classifier on orthonormal GMM data."
-    image: assets/img/projects/gradient_flow.svg
+    image: assets/img/projects/gradient_flow.png
     paper_url: "https://hanchmin.github.io/assets/pdf/MV2025ICML.pdf"
 
   - title: "Optimization Landscape of Neural Networks"
@@ -83,7 +83,7 @@ project_carousel:
     authors: "René Vidal, Zhihui Zhu, Benjamin D. Haeffele"
     venue: "Book"
     description: "A graduate-level treatment of the geometry and optimization of deep network loss surfaces, from matrix factorization to overparameterized networks."
-    image: assets/img/projects/optimization.svg
+    image: assets/img/projects/optimization.jpg
     project_url: "https://www.cambridge.org/core/books/optimization-landscape-of-neural-networks/"
 
 tutorials:
@@ -125,7 +125,7 @@ highlights:
   - venue: "ICML 2025"
     title: "Gradient Flow Provably Learns Robust Classifiers for Orthonormal GMMs"
     authors: "Hancheng Min, René Vidal"
-    thumbnail: "assets/img/thumbnails/gradient_flow.svg"
+    thumbnail: "assets/img/thumbnails/gradient_flow.png"
     links:
       - text: "Paper"
         url: "https://hanchmin.github.io/assets/pdf/MV2025ICML.pdf"
@@ -133,7 +133,7 @@ highlights:
   - venue: "CVPR 2025"
     title: "Disentangling Safe and Unsafe Image Corruptions via Anisotropy and Locality"
     authors: "Ramchandran Muthukumar, Ambar Pal, Jeremias Sulam, René Vidal"
-    thumbnail: "assets/img/thumbnails/disentangling.svg"
+    thumbnail: "assets/img/thumbnails/disentangling.png"
     links:
       - text: "Paper"
         url: "https://arxiv.org/abs/2501.18098"
@@ -141,7 +141,7 @@ highlights:
   - venue: "MICCAI 2025"
     title: "IP-CRR: Information Pursuit for Interpretable Classification of Chest Radiology Reports"
     authors: "Yuyan Ge, Kwan Ho Ryan Chan, Pablo Messina, René Vidal"
-    thumbnail: "assets/img/thumbnails/ip_crr.svg"
+    thumbnail: "assets/img/thumbnails/ip_crr.png"
     links:
       - text: "Paper"
         url: "https://arxiv.org/abs/2505.00191"
@@ -149,7 +149,7 @@ highlights:
   - venue: "NeurIPS 2025"
     title: "Conformal Information Pursuit for Interactively Guiding Large Language Models"
     authors: "Kwan Ho Ryan Chan, Yuyan Ge, Edgar Dobriban, Hamed Hassani, René Vidal"
-    thumbnail: "assets/img/thumbnails/conformal_ip.svg"
+    thumbnail: "assets/img/thumbnails/conformal_ip.png"
     links:
       - text: "Project"
         url: "https://ryanchankh.github.io/ConformalInformationPursuit/"
@@ -159,7 +159,7 @@ highlights:
   - venue: "NeurIPS 2025"
     title: "SECA: Semantically Equivalent and Coherent Attacks for Eliciting LLM Hallucinations"
     authors: "Buyun Liang, Liangzu Peng, Jinqi Luo, Darshan Thaker, Kwan Ho Ryan Chan, René Vidal"
-    thumbnail: "assets/img/thumbnails/seca.svg"
+    thumbnail: "assets/img/thumbnails/seca.png"
     links:
       - text: "Paper"
         url: "https://arxiv.org/abs/2510.04398"
@@ -167,7 +167,7 @@ highlights:
   - venue: "ICCV 2025"
     title: "Voyaging into Perpetual Dynamic Scenes from a Single View"
     authors: "Fengrui Tian, Tianjiao Ding, Jinqi Luo, Hancheng Min, René Vidal"
-    thumbnail: "assets/img/thumbnails/voyaging.svg"
+    thumbnail: "assets/img/thumbnails/voyaging.gif"
     links:
       - text: "Paper"
         url: "https://arxiv.org/abs/2507.04183"
@@ -175,7 +175,7 @@ highlights:
   - venue: "Preprint 2026"
     title: "Hierarchical Concept Embedding & Pursuit for Interpretable Image Classification"
     authors: "Nghia Nguyen, Tianjiao Ding, René Vidal"
-    thumbnail: "assets/img/thumbnails/hierarchical.svg"
+    thumbnail: "assets/img/thumbnails/hierarchical.png"
     links:
       - text: "Paper"
         url: "https://arxiv.org/abs/2602.11448"
@@ -183,7 +183,7 @@ highlights:
   - venue: "IEEE TBME 2025"
     title: "CAMI-2DNet: Computerized Assessment of Motor Imitation for Distinguishing Autism in Video"
     authors: "Kaleab A. Kinfu, Carolina Pacheco, Alice D. Sperry, Deana Crocetti, Bahar Tunçgenç, Stewart H. Mostofsky, René Vidal"
-    thumbnail: "assets/img/thumbnails/cami.svg"
+    thumbnail: "assets/img/thumbnails/cami.png"
     links:
       - text: "Paper"
         url: "https://arxiv.org/abs/2501.08609"
@@ -191,7 +191,7 @@ highlights:
   - venue: "Cambridge University Press 2022"
     title: "Optimization Landscape of Neural Networks"
     authors: "René Vidal, Zhihui Zhu, Benjamin D. Haeffele"
-    thumbnail: "assets/img/thumbnails/optimization.svg"
+    thumbnail: "assets/img/thumbnails/optimization.jpg"
     links:
       - text: "Book"
         url: "https://www.cambridge.org/core/books/optimization-landscape-of-neural-networks/"

@@ -26,26 +26,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 5000);
   }
 
-  // Group photo carousel
-  const track = document.querySelector('.carousel-track');
-  if (track) {
-    const slides = track.querySelectorAll('.carousel-slide, img');
-    const dots = document.querySelectorAll('.carousel-dots button');
-    const count = track.querySelectorAll('.carousel-slide').length || track.querySelectorAll('img').length;
-    let current = 0;
+  // Carousels (project highlights, group photos)
+  document.querySelectorAll('.carousel-track').forEach(track => {
+    const root = track.closest('.project-carousel, .group-carousel') || track.parentElement;
+    const dots = root.querySelectorAll('.carousel-dots button');
+    const count =
+      track.querySelectorAll('.project-slide').length ||
+      track.querySelectorAll('.carousel-slide').length ||
+      track.querySelectorAll(':scope > img').length;
+    if (!count) return;
 
+    let current = 0;
     function goTo(i) {
       current = ((i % count) + count) % count;
       track.style.transform = `translateX(-${current * 100}%)`;
       dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
     }
 
-    document.querySelector('.carousel-btn.prev')?.addEventListener('click', () => goTo(current - 1));
-    document.querySelector('.carousel-btn.next')?.addEventListener('click', () => goTo(current + 1));
+    root.querySelector('.carousel-btn.prev')?.addEventListener('click', () => goTo(current - 1));
+    root.querySelector('.carousel-btn.next')?.addEventListener('click', () => goTo(current + 1));
     dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
 
-    setInterval(() => goTo(current + 1), 5000);
-  }
+    setInterval(() => goTo(current + 1), 6000);
+  });
 
   // Research Topics category tabs
   const categoryTabs = document.querySelectorAll('.research-category-tab');
