@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/styles.css" />
 <link rel="stylesheet" href="assets/css/people.css" />
+<script defer src="assets/js/nav.js"></script>
 </head>
 <body data-page="people">
 
@@ -45,6 +46,16 @@
 </header>
 
 <section class="people-hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bg-slide active" style="background-image:url('assets/img/group/group-2022.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/group/group-2015.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/group/group-2012.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/group/group-2010.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/group/group-2007.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/group/group-2006.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/group/group-2005.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('assets/img/group/group-1.jpg')"></div>
+  </div>
   <div class="people-hero-meta">
     <span><span class="tick"></span> § 02 — People</span>
     <span class="mono" id="member-count">— members</span>
@@ -56,6 +67,19 @@
     Current and former members of the VIDAL Lab — a community of researchers, engineers, and clinicians working at the boundary of mathematical foundations and impactful AI systems.
   </p>
 </section>
+
+<script>
+(function(){
+  const slides = document.querySelectorAll('.hero-bg-slide');
+  if(slides.length < 2) return;
+  let i = 0;
+  setInterval(() => {
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
+  }, 5000);
+})();
+</script>
 
 <section class="pi-section" id="pi">
   <header class="section-head">

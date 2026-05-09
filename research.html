@@ -9,6 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/styles.css" />
 <link rel="stylesheet" href="assets/css/subpages.css" />
+<link rel="stylesheet" href="assets/css/research-topics.css" />
+<script defer src="assets/js/nav.js"></script>
 </head>
 <body data-page="research">
 
@@ -105,31 +107,6 @@
 <section style="margin-top:80px">
   <header class="section-head">
     <div class="section-num">§ 03·2</div>
-    <h2>Featured <em>project</em></h2>
-    <p class="section-note">Most recent flagship work from the lab.</p>
-  </header>
-  <div class="featured-callout">
-    <div class="fc-art">
-      <span class="fc-tag">NeurIPS 2025</span>
-      <canvas id="fc-canvas"></canvas>
-      <div class="fc-mega">Conformal<br/>Information<br/>Pursuit</div>
-    </div>
-    <div class="fc-text">
-      <span class="fc-eyebrow">NeurIPS 2025 · Vidal Lab</span>
-      <h3 class="fc-title">Interactively Guiding Large Language Models, with <em>guarantees</em>.</h3>
-      <p class="fc-desc">We extend the information pursuit framework to LLMs with conformal calibration — letting models ask informative, targeted questions to disambiguate user intent under formal uncertainty guarantees.</p>
-      <p class="fc-desc"><b>Authors:</b> Kwan Ho Ryan Chan, Yuyan Ge, Edgar Dobriban, Hamed Hassani, René Vidal.</p>
-      <div class="fc-actions">
-        <a class="btn btn-primary" href="https://ryanchankh.github.io/ConformalInformationPursuit/" target="_blank" rel="noopener">Project page <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        <a class="btn btn-ghost" href="https://arxiv.org/abs/2507.03279" target="_blank" rel="noopener">Read paper</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="margin-top:80px">
-  <header class="section-head">
-    <div class="section-num">§ 03·3</div>
     <h2>Project <em>highlights</em></h2>
     <p class="section-note">Selected papers, 2025–2026.</p>
   </header>
@@ -140,6 +117,156 @@
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg>
     </a>
   </div>
+</section>
+
+<section class="research-topics-section rt-section" style="margin-top:100px">
+  <header class="section-head">
+    <div class="section-num">§ 03·3</div>
+    <h2>Topics &amp; <em>publications</em></h2>
+    <p class="section-note">Browse the lab's research by area, then filter publications by topic.</p>
+  </header>
+
+  <div class="research-category-tabs">
+    <button class="research-category-tab active" data-category="ml">Machine Learning</button>
+    <button class="research-category-tab" data-category="cv">Computer Vision</button>
+    <button class="research-category-tab" data-category="dyn">Dynamical Systems &amp; Robotics</button>
+    <button class="research-category-tab" data-category="med">AI for Healthcare</button>
+  </div>
+
+  <div class="research-category-panel active" id="panel-ml">
+    <div class="research-topic-item">
+      <h3>Deep Learning Theory</h3>
+      <button class="view-pubs-btn" data-topics="Deep Learning">View Publications &rarr;</button>
+      <p>We study the mathematical principles behind modern neural networks. Our lab focuses on understanding the optimization landscape and generalization properties of positively homogeneous networks, analyzing the learning dynamics and implicit bias of gradient-based methods, and providing principled explanations to deep learning phenomena such as neural collapse, low-rank adaptation, and learning on the edge of stability.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Trustworthy AI</h3>
+      <button class="view-pubs-btn" data-topics="Adversarial Robustness,Interpretable AI">View Publications &rarr;</button>
+      <p>We develop AI systems that are interpretable, robust, and reliable for high-stakes applications. Our information pursuit framework enables explainable-by-design models that make predictions from a sequence of informative question–answer pairs. We also analyze when robust classifiers are guaranteed to exist and design adversarial attacks that stress-test visual classifiers and large language models.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Deep Generative Models</h3>
+      <button class="view-pubs-btn" data-topics="Deep Learning,Computer Vision">View Publications &rarr;</button>
+      <p>We explore the theory and practice of deep generative models — convergence guarantees for generative-model inversion, transformer-based diffusion, flow matching aligned with the multimodal structure of real data, and accurate diffusion-based image restoration.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Parsimonious Representation Learning</h3>
+      <button class="view-pubs-btn" data-topics="GPCA,Sparse Optimization,Manifold clustering,Boosting">View Publications &rarr;</button>
+      <p>We focus on discovering sparse and low-rank structure in high-dimensional data — Generalized PCA (GPCA), Sparse Subspace Clustering (SSC), Dual Principal Component Pursuit (DPCP), and nonconvex matrix and tensor factorization with global-optimality guarantees.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Continual Learning</h3>
+      <button class="view-pubs-btn" data-topics="Continual Learning">View Publications &rarr;</button>
+      <p>We build models that learn tasks sequentially without forgetting. Frameworks like the Ideal Continual Learner (ICL) and LoRanPAC unify existing methods, provide theoretical guarantees, and maintain stability over long task sequences.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Optimization</h3>
+      <button class="view-pubs-btn" data-topics="Optimization">View Publications &rarr;</button>
+      <p>We analyze convergence and global optimality of optimization algorithms for machine learning — subspace clustering, nonconvex matrix and tensor factorization, dictionary learning, generative-model inversion, and deep-learning training. We also study distributed optimization on Riemannian manifolds and accelerated methods.</p>
+    </div>
+  </div>
+
+  <div class="research-category-panel" id="panel-cv">
+    <div class="research-topic-item">
+      <h3>Vision–Language Models</h3>
+      <button class="view-pubs-btn" data-topics="Computer Vision,Interpretable AI">View Publications &rarr;</button>
+      <p>We develop vision–language models that connect visual data with semantic concepts, including concept-based interpretable classification, knowledge-pursuit prompting for zero-shot multimodal synthesis, and concept-based image-editing methods.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Human Motion Analysis</h3>
+      <button class="view-pubs-btn" data-topics="Computer Vision">View Publications &rarr;</button>
+      <p>We develop methods for understanding human motion from video and skeletal data — action recognition, detection, segmentation, pose estimation, and multimodal motion representations supporting recognition, retrieval, and generation.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Video Analysis</h3>
+      <button class="view-pubs-btn" data-topics="Dynamic textures,2D motion segmentation,3D motion segmentation">View Publications &rarr;</button>
+      <p>We model dynamic visual phenomena in video — dynamic textures via dynamical systems, semantic video segmentation, robust video classification, and perpetual generation of dynamic scenes with 3D consistency.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Image Analysis</h3>
+      <button class="view-pubs-btn" data-topics="Computer Vision,nonrigid shape,GPCA">View Publications &rarr;</button>
+      <p>Algorithms for image segmentation, alpha matting, semantic segmentation with structured outputs, visual representation learning, and image deblurring with both classical and diffusion-based priors.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Geometric Vision</h3>
+      <button class="view-pubs-btn" data-topics="3D motion segmentation,2D motion segmentation,omnidirectional vision">View Publications &rarr;</button>
+      <p>Geometric methods for recovering 3D structure and motion — multibody motion segmentation, the Hopkins 155 benchmark, robust object pose estimation, and optimization-based geometric estimation via DPCP and IRLS.</p>
+    </div>
+  </div>
+
+  <div class="research-category-panel" id="panel-dyn">
+    <div class="research-topic-item">
+      <h3>Learning and Analyzing Linear, Bilinear and Hybrid Dynamical Systems</h3>
+      <button class="view-pubs-btn" data-topics="Hybrid systems,Hybrid system identification,Realization theory">View Publications &rarr;</button>
+      <p>Conditions for observability and algorithms for system identification of hybrid systems, realization theory for stochastic jump-Markov and bilinear systems, and identification of linear systems with sparse inputs.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Geometry and Distances of Spaces of Dynamical Systems</h3>
+      <button class="view-pubs-btn" data-topics="Distances,Dynamic textures">View Publications &rarr;</button>
+      <p>Principled distances and similarity measures for comparing dynamical systems — Binet–Cauchy kernels, group-action-induced distances, and alignment distances, with strong impact on video comparison and action recognition.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Dynamical-Systems Perspectives on Optimization</h3>
+      <button class="view-pubs-btn" data-topics="Optimization">View Publications &rarr;</button>
+      <p>Optimization through the lens of dynamical systems — accelerated gradient descent, ADMM, conformal symplectic and relativistic optimization, nonsmooth dynamical systems, and proximal splitting methods.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Distributed Optimization and Consensus on Manifolds</h3>
+      <button class="view-pubs-btn" data-topics="formation control,Distances,Optimization">View Publications &rarr;</button>
+      <p>Geometric methods for distributed optimization and consensus — Riemannian motion estimation on the essential manifold, Riemannian centers of mass, and consensus algorithms with theoretical guarantees.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Robotics and Autonomous Systems</h3>
+      <button class="view-pubs-btn" data-topics="formation control,Computer Vision">View Publications &rarr;</button>
+      <p>Geometric and control-theoretic methods for autonomous robots — vision-based control for autonomous helicopter landing and game-theoretic pursuit–evasion strategies.</p>
+    </div>
+  </div>
+
+  <div class="research-category-panel" id="panel-med">
+    <div class="research-topic-item">
+      <h3>Diffusion MRI Analysis</h3>
+      <button class="view-pubs-btn" data-topics="Biomedical">View Publications &rarr;</button>
+      <p>HARDI reconstruction, restoration, registration, and segmentation via information geometry, sparse representation, and non-convex optimization — enabling biomarker discovery for neurological disorders.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Surgical Activity Recognition and Skill Assessment</h3>
+      <button class="view-pubs-btn" data-topics="Biomedical,Computer Vision">View Publications &rarr;</button>
+      <p>Bag-of-spatiotemporal features, sparse HMMs, CRFs, and spatio-temporal deep architectures for surgical-workflow understanding — plus the JHU-ISI gesture and skill assessment benchmark.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Stem Cell-Derived Cardiomyocytes</h3>
+      <button class="view-pubs-btn" data-topics="Biomedical">View Publications &rarr;</button>
+      <p>Clustering and classification of cardiac cells based on cell morphology and contractile dynamics — shape analysis via metamorphosis models and recurrent networks for temporal contraction patterns.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Computational Microscopy &amp; Point-of-Care Diagnostics</h3>
+      <button class="view-pubs-btn" data-topics="Biomedical,Sparse Optimization">View Publications &rarr;</button>
+      <p>Holographic reconstruction, hybrid physics+deep phase retrieval, and encoder–decoder cell-detection networks for point-of-care diagnostics — automated CBC and lensless urinalysis.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Vision for Neurological &amp; Developmental Disorders</h3>
+      <button class="view-pubs-btn" data-topics="Biomedical,Computer Vision,Interpretable AI">View Publications &rarr;</button>
+      <p>Computer-vision methods for analyzing human movement — infant action recognition, motor-tic detection for Tourette assessment, and the CAMI motor-imitation framework as a biomarker for autism.</p>
+    </div>
+    <div class="research-topic-item">
+      <h3>Medical Vision–Language &amp; Foundation Models</h3>
+      <button class="view-pubs-btn" data-topics="Biomedical,Interpretable AI">View Publications &rarr;</button>
+      <p>Multimodal AI combining medical images and clinical text — extracting structured medical facts from radiology reports, grounding clinical concepts in chest X-rays, and building interpretable foundation models for radiology and cardiology.</p>
+    </div>
+  </div>
+</section>
+
+<section id="publications-section" class="rt-section" style="margin-top:80px">
+  <header class="section-head">
+    <div class="section-num">§ 03·4</div>
+    <h2>Publications by <em>topic</em></h2>
+    <p class="section-note">Select one or more topics to filter the list.</p>
+  </header>
+
+  <p class="topic-hint">Click a topic chip to filter; click again to remove. "All" clears.</p>
+  <div id="topic-tabs" class="topic-tabs"></div>
+  <p id="pub-count" class="pub-count"></p>
+  <div id="publications-container"></div>
 </section>
 
 <section style="margin: 100px 0 0;" class="affiliations">
@@ -206,7 +333,6 @@
 </footer>
 
 <script src="assets/js/papers.js"></script>
-<script src="assets/js/page-shell.js"></script>
 <script>
 (function(){
   const root = document.getElementById('proj-list');
@@ -220,7 +346,7 @@
     row.rel = 'noopener';
     row.innerHTML = `
       <div class="pr-num">${String(i+1).padStart(2,'0')}</div>
-      <canvas class="pr-thumb" data-c1="${p.palette[0]}" data-c2="${p.palette[1]}" data-seed="${i}"></canvas>
+      ${p.image ? `<img class="pr-thumb" src="${p.image}" alt="${p.title}" loading="lazy"/>` : `<canvas class="pr-thumb" data-c1="${p.palette[0]}" data-c2="${p.palette[1]}"></canvas>`}
       <div class="pr-text">
         <span class="pr-tag">${p.venue}</span>
         <h3 class="pr-title">${p.title}</h3>
@@ -230,73 +356,9 @@
     `;
     root.appendChild(row);
   });
-  setTimeout(() => {
-    document.querySelectorAll('.pr-thumb').forEach(cv => {
-      const ctx = cv.getContext('2d');
-      const dpr = Math.min(2, window.devicePixelRatio || 1);
-      const w = cv.clientWidth, h = cv.clientHeight;
-      cv.width = w*dpr; cv.height = h*dpr;
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-      const c1 = cv.dataset.c1, c2 = cv.dataset.c2;
-      const seed = +cv.dataset.seed * 0.43;
-      ctx.fillStyle = '#F4F6FB';
-      ctx.fillRect(0,0,w,h);
-      for(let y=0; y<h; y+=8){
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        for(let x=0; x<=w; x+=6){
-          const yy = y + Math.sin(x*0.025 + y*0.04 + seed)*8 + Math.cos(x*0.012 + seed*2)*4;
-          ctx.lineTo(x, yy);
-        }
-        ctx.strokeStyle = (Math.floor(y/8) % 3 === 0) ? c1 : c2;
-        ctx.globalAlpha = 0.55 + Math.sin(y*0.05 + seed)*0.2;
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-      }
-      ctx.globalAlpha = 1;
-      ctx.fillStyle = c1;
-      ctx.beginPath(); ctx.arc(w-12, 12, 3, 0, Math.PI*2); ctx.fill();
-    });
-  }, 60);
-})();
-
-(function(){
-  const cv = document.getElementById('fc-canvas');
-  if(!cv) return;
-  const ctx = cv.getContext('2d');
-  const dpr = Math.min(2, window.devicePixelRatio || 1);
-  function draw(){
-    const w = cv.clientWidth, h = cv.clientHeight;
-    cv.width = w*dpr; cv.height = h*dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    const cx = w*0.7, cy = h*0.5;
-    for(let r=0;r<300;r+=12){
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI*2);
-      ctx.strokeStyle = `rgba(255,255,255,${0.05 + (1 - r/300)*0.18})`;
-      ctx.lineWidth = 0.8;
-      ctx.stroke();
-    }
-    for(let i=0;i<32;i++){
-      const a = (i/32)*Math.PI*2;
-      ctx.beginPath();
-      ctx.moveTo(cx + Math.cos(a)*40, cy + Math.sin(a)*40);
-      ctx.lineTo(cx + Math.cos(a)*280, cy + Math.sin(a)*280);
-      ctx.strokeStyle = `rgba(255,255,255,${0.06 + Math.abs(Math.sin(i))*0.18})`;
-      ctx.lineWidth = 0.7;
-      ctx.stroke();
-    }
-    for(let i=0;i<70;i++){
-      const a = Math.random()*Math.PI*2;
-      const r = 60 + Math.random()*240;
-      ctx.beginPath();
-      ctx.arc(cx + Math.cos(a)*r, cy + Math.sin(a)*r, Math.random()*1.6+0.6, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(1,31,91,${0.6 + Math.random()*0.3})`;
-      ctx.fill();
-    }
-  }
-  draw(); window.addEventListener('resize', draw);
 })();
 </script>
+<script src="assets/js/research-topics.js"></script>
+<script src="assets/js/publications.js"></script>
 </body>
 </html>

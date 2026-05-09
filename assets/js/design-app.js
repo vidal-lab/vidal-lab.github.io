@@ -1,29 +1,4 @@
-/* ────────────────────────  NAV scroll state  ──────────────────────── */
-const nav = document.getElementById('nav');
-const onScroll = () => {
-  nav.classList.toggle('scrolled', window.scrollY > 12);
-};
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
-
-/* nav More dropdown */
-(function(){
-  const more = document.querySelector('.nav-more');
-  if(!more) return;
-  const btn = more.querySelector('.nav-more-btn');
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = more.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  document.addEventListener('click', (e) => {
-    if(!more.contains(e.target)){ more.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-  });
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape'){ more.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-  });
-  more.querySelectorAll('a').forEach(a => a.addEventListener('click', () => more.classList.remove('open')));
-})();
+/* Nav (scrolled state, More dropdown, active highlight) lives in nav.js. */
 
 /* ────────────────────────  CLOCK  ──────────────────────── */
 const clockEl = document.getElementById('clock');
@@ -215,7 +190,7 @@ tickClock(); setInterval(tickClock, 1000);
         </div>
       </div>
       <div class="hl-visual">
-        <canvas data-motif="${d.motif}" data-c1="${d.palette[0]}" data-c2="${d.palette[1]}"></canvas>
+        ${d.image ? `<img class="hl-img" src="${d.image}" alt="${d.title}" loading="lazy"/>` : `<canvas data-c1="${d.palette[0]}" data-c2="${d.palette[1]}"></canvas>`}
         <div class="hl-meta">
           <span>${String(i+1).padStart(2,'0')} / ${String(data.length).padStart(2,'0')}</span>
           <span>${d.venue}</span>
@@ -346,62 +321,24 @@ tickClock(); setInterval(tickClock, 1000);
 (function(){
   const grid = document.getElementById('pub-grid');
   if(!grid) return;
-  const data = window.PUBLICATIONS || [];
-  data.forEach((p,i) => {
-    const el = document.createElement('article');
+  // Drive the publication grid from HIGHLIGHTS so thumbnails show real images.
+  const data = window.HIGHLIGHTS || [];
+  data.forEach(p => {
+    const link = p.project || p.paper || '#';
+    const el = document.createElement('a');
     el.className = 'pub';
+    el.href = link;
+    el.target = '_blank';
+    el.rel = 'noopener';
     el.innerHTML = `
       <div class="pub-head">
-        <span class="pub-tag">${p.tag}</span>
+        <span class="pub-tag">${p.venue}</span>
         <span class="pub-arrow">↗</span>
       </div>
-      <canvas class="pub-thumb" data-motif="${p.motif}"></canvas>
+      ${p.image ? `<img class="pub-thumb" src="${p.image}" alt="${p.title}" loading="lazy"/>` : ''}
       <h3 class="pub-title">${p.title}</h3>
-      <p class="pub-authors">${p.authors}</p>
+      <p class="pub-authors">${p.authors.join(', ')}</p>
     `;
     grid.appendChild(el);
   });
-  // draw thumbnails
-  setTimeout(() => {
-    const palettes = [
-      ['#990000','#011F5B'],
-      ['#011F5B','#990000'],
-      ['#990000','#C8102E'],
-      ['#011F5B','#5C7AB8'],
-      ['#990000','#011F5B'],
-      ['#011F5B','#990000'],
-      ['#C8102E','#011F5B'],
-      ['#990000','#5C7AB8'],
-      ['#011F5B','#C8102E'],
-    ];
-    grid.querySelectorAll('.pub-thumb').forEach((cv, i) => {
-      const ctx = cv.getContext('2d');
-      const dpr = Math.min(2, window.devicePixelRatio || 1);
-      const w = cv.clientWidth, h = cv.clientHeight;
-      cv.width = w*dpr; cv.height = h*dpr;
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-      const [c1,c2] = palettes[i % palettes.length];
-      // bg
-      ctx.fillStyle = '#F4F6FB';
-      ctx.fillRect(0,0,w,h);
-      // motif: streamlines
-      const seed = (i+1)*0.43;
-      for(let y=0;y<h;y+=10){
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        for(let x=0;x<=w;x+=6){
-          const yy = y + Math.sin(x*0.025 + y*0.04 + seed) * 8 + Math.cos(x*0.012 + seed*2) * 4;
-          ctx.lineTo(x, yy);
-        }
-        ctx.strokeStyle = (Math.floor(y/10) % 3 === 0) ? c1 : c2;
-        ctx.globalAlpha = 0.55 + Math.sin(y*0.05 + seed)*0.2;
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-      }
-      ctx.globalAlpha = 1;
-      // accent dot
-      ctx.fillStyle = c1;
-      ctx.beginPath(); ctx.arc(w-22, 22, 5, 0, Math.PI*2); ctx.fill();
-    });
-  }, 80);
 })();

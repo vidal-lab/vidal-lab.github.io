@@ -507,6 +507,19 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
   opacity: .9;
 }
 .hl-visual canvas{ position: absolute; inset: 0; width: 100%; height: 100%; }
+.hl-img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+.hl-visual .hl-meta{ z-index: 2; }
+.hl-visual:has(.hl-img)::before{
+  background: linear-gradient(to top, rgba(1,31,91,0.55), rgba(1,31,91,0) 60%);
+  z-index: 1;
+  pointer-events: none;
+}
 .hl-meta{
   position: absolute; bottom: 24px; left: 28px; right: 28px;
   display: flex; justify-content: space-between;
@@ -679,8 +692,8 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
   cursor: pointer;
   transition: background .3s ease;
 }
+.pub{ text-decoration: none; color: inherit; }
 .pub:hover{ background: var(--ink); color: var(--bg); }
-.pub:hover .pub-thumb{ filter: invert(1) hue-rotate(180deg); }
 .pub:hover .pub-arrow{ transform: translate(4px, -4px); }
 .pub:hover .pub-tag{ color: var(--accent); }
 .pub-head{

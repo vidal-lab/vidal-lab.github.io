@@ -8,8 +8,8 @@ window.HIGHLIGHTS = [
     desc: "We extend the information pursuit framework to large language models with conformal calibration, enabling LLMs to ask informative, targeted questions to disambiguate user intent — under formal uncertainty guarantees.",
     project: "https://ryanchankh.github.io/ConformalInformationPursuit/",
     paper: "https://arxiv.org/abs/2507.03279",
-    palette: ["#990000","#011F5B"],
-    motif: "lattice"
+    image: "assets/img/projects/conformal_ip.png",
+    palette: ["#990000","#011F5B"]
   },
   {
     venue: "ICCV 2025",
@@ -18,8 +18,8 @@ window.HIGHLIGHTS = [
     authors: ["Fengrui Tian","Tianjiao Ding","Jinqi Luo","Hancheng Min","René Vidal"],
     desc: "Generates long, perpetually-unfolding dynamic 3D scenes from a single image by combining diffusion-based novel-view synthesis with temporal consistency constraints.",
     paper: "https://arxiv.org/abs/2507.04183",
-    palette: ["#011F5B","#990000"],
-    motif: "wave"
+    image: "assets/img/projects/voyaging.gif",
+    palette: ["#011F5B","#990000"]
   },
   {
     venue: "NeurIPS 2025",
@@ -28,8 +28,8 @@ window.HIGHLIGHTS = [
     authors: ["Buyun Liang","Liangzu Peng","Jinqi Luo","Darshan Thaker","Kwan Ho Ryan Chan","René Vidal"],
     desc: "A constrained optimization framework that finds semantically equivalent and coherent prompt rewrites that reliably trigger hallucinations in modern large language models.",
     paper: "https://arxiv.org/abs/2510.04398",
-    palette: ["#990000","#C8102E"],
-    motif: "noise"
+    image: "assets/img/projects/seca.png",
+    palette: ["#990000","#C8102E"]
   },
   {
     venue: "MICCAI 2025",
@@ -38,8 +38,8 @@ window.HIGHLIGHTS = [
     authors: ["Yuyan Ge","Kwan Ho Ryan Chan","Pablo Messina","René Vidal"],
     desc: "An interpretable-by-design system that classifies chest radiology reports by sequentially querying the most informative clinical concepts.",
     paper: "https://arxiv.org/abs/2505.00191",
-    palette: ["#011F5B","#5C7AB8"],
-    motif: "lattice"
+    image: "assets/img/projects/ip_crr.png",
+    palette: ["#011F5B","#5C7AB8"]
   },
   {
     venue: "CVPR 2025",
@@ -48,8 +48,8 @@ window.HIGHLIGHTS = [
     authors: ["Ramchandran Muthukumar","Ambar Pal","Jeremias Sulam","René Vidal"],
     desc: "A new threat model that distinguishes safe from unsafe image corruptions through anisotropic, locality-aware geometric analysis of perturbations.",
     paper: "https://arxiv.org/abs/2501.18098",
-    palette: ["#990000","#011F5B"],
-    motif: "wave"
+    image: "assets/img/projects/disentangling.png",
+    palette: ["#990000","#011F5B"]
   },
   {
     venue: "IEEE TBME 2025",
@@ -58,8 +58,8 @@ window.HIGHLIGHTS = [
     authors: ["Kaleab A. Kinfu","Carolina Pacheco","et al.","René Vidal"],
     desc: "A 2D video-based deep network that quantifies motor imitation ability as a behavioral biomarker for autism spectrum disorder.",
     paper: "https://arxiv.org/abs/2501.08609",
-    palette: ["#011F5B","#990000"],
-    motif: "noise"
+    image: "assets/img/projects/cami.png",
+    palette: ["#011F5B","#990000"]
   },
   {
     venue: "Preprint 2026",
@@ -68,8 +68,8 @@ window.HIGHLIGHTS = [
     authors: ["Nghia Nguyen","Tianjiao Ding","René Vidal"],
     desc: "A hierarchical concept-based classifier that explains predictions through a tree of human-understandable visual attributes.",
     paper: "https://arxiv.org/abs/2602.11448",
-    palette: ["#5C7AB8","#0A3380"],
-    motif: "lattice"
+    image: "assets/img/projects/hierarchical.png",
+    palette: ["#5C7AB8","#0A3380"]
   },
   {
     venue: "CVPR 2025",
@@ -79,8 +79,8 @@ window.HIGHLIGHTS = [
     desc: "A geometry-aware image editing framework that decomposes prompts into latent concept directions and transplants them with compositional control over the edit.",
     project: "https://peterljq.github.io/project/colan/",
     paper: "https://arxiv.org/abs/2504.02828",
-    palette: ["#990000","#011F5B"],
-    motif: "wave"
+    image: "assets/img/projects/concept_lancet.png",
+    palette: ["#990000","#011F5B"]
   },
   {
     venue: "NeurIPS 2025",
@@ -89,8 +89,8 @@ window.HIGHLIGHTS = [
     authors: ["Hancheng Min","Zhihui Zhu","René Vidal"],
     desc: "Proves that gradient flow on shallow ReLU networks induces neural collapse for orthogonally separable data, characterizing the geometry of learned representations.",
     paper: "https://arxiv.org/abs/2510.21078",
-    palette: ["#011F5B","#990000"],
-    motif: "noise"
+    image: "assets/img/projects/neural_collapse.png",
+    palette: ["#011F5B","#990000"]
   }
 ];
 
