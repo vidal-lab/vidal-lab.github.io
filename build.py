@@ -369,6 +369,13 @@ def build_index(data, _body):
         + "\n"
         + render_navbar("index")
         + """
+<div class="page-header home-hero">
+  <div class="container">
+    <h1>Welcome to Vidal Lab!</h1>
+    <p>Vision, Intelligence, Dynamics &amp; Learning at the University of Pennsylvania</p>
+  </div>
+</div>
+
 <main>
   <div class="container home-section-header">
     <h2>Research Highlights</h2>

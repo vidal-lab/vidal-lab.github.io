@@ -368,8 +368,16 @@ section h3 {
 .carousel-dots button.active { background: white; }
 
 /* ===== HOME: PROJECT CAROUSEL ===== */
+.home-hero {
+  margin-bottom: 0;
+}
+
 .home-section-header {
   margin-top: 48px;
+}
+
+.home-hero + main .home-section-header {
+  margin-top: 32px;
 }
 
 .home-section-header h2 {
