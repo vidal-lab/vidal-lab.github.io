@@ -1,140 +1,399 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>René Vidal — Vidal Lab</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>René Vidal — VIDAL Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="assets/css/subpages.css" />
+<style>
+  /* Page-local layout for the PI profile */
+  .pi-hero{
+    padding: 140px var(--pad-x) 60px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .pi-hero-meta{
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    margin-bottom: 60px;
+  }
+  .pi-hero-meta .tick{
+    display: inline-block; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--accent);
+    margin-right: 6px; vertical-align: middle;
+  }
+  .pi-hero-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+  .pi-hero-grid > figure.pi-portrait{ justify-self: end; }
+  .pi-hero-grid > div{ justify-self: start; }
+  .pi-portrait{
+    position: relative;
+    border: 5px solid var(--accent);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: #fff;
+    aspect-ratio: 1 / 1;
+    padding: 28px;
+    width: 100%;
+    max-width: 380px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pi-portrait img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--r-lg) - 4px);
+    filter: grayscale(15%) contrast(1.04);
+    transition: transform .8s ease, filter .8s ease;
+  }
+  .pi-portrait:hover img{ transform: scale(1.03); filter: grayscale(0%) contrast(1.1); }
+  .pi-portrait .pi-tag{
+    position: absolute; top: 18px; left: 18px;
+    font-family: var(--mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    background: var(--bg); color: var(--accent);
+    padding: 6px 12px; border-radius: 999px;
+    z-index: 2;
+  }
+  .pi-display{
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(56px, 9.5vw, 156px);
+    line-height: 0.92; letter-spacing: -0.025em;
+    margin: 0 0 20px;
+  }
+  .pi-display em{ color: var(--accent); }
+  .pi-roles{
+    list-style: none; padding: 0; margin: 0 0 24px;
+    display: flex; flex-direction: column; gap: 6px;
+    max-width: 60ch;
+  }
+  .pi-roles li{
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(15px, 1.2vw, 19px);
+    color: var(--ink-soft); line-height: 1.4;
+  }
+  .pi-contact{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 24px;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+  .pi-contact dt{
+    font-family: var(--mono); font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-mute); padding-top: 2px;
+  }
+  .pi-contact dd{ margin: 0; color: var(--ink); }
+  .pi-contact a{ color: var(--accent); border-bottom: 1px solid currentColor; }
+
+  /* Two-column body sections — relies on .section-head's own border-top
+     to separate consecutive sections; no extra section-level borders. */
+  .pi-section{ padding-bottom: 60px; }
+  .pi-section > .section-head + *{ margin: 0 var(--pad-x); }
+  .pi-body-grid{
+    margin: 0 var(--pad-x);
+    display: grid;
+    grid-template-columns: 0.9fr 1.6fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: start;
+  }
+  .pi-body-grid.pi-body-grid--single{
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 24px;
+  }
+  .pi-body-grid--single .pi-prose{ grid-column: 2; }
+  .pi-body-grid--single .pi-prose p{ max-width: 78ch; }
+  .pi-body-grid .lead{
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(20px, 1.7vw, 26px);
+    line-height: 1.3; color: var(--ink);
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  .pi-prose p{
+    font-size: 16px; line-height: 1.65;
+    color: var(--ink); margin: 0 0 14px;
+    max-width: 68ch;
+  }
+  .pi-prose a:not(.btn){ color: var(--accent); border-bottom: 1px solid color-mix(in oklab, var(--accent) 40%, transparent); }
+  .pi-prose a:not(.btn):hover{ border-bottom-color: var(--accent); }
+
+  /* Awards — editorial list (no empty grid cells) */
+  .awards-list{
+    list-style: none; padding: 0; margin: 0;
+    border-top: 1px solid var(--line);
+  }
+  .awards-list li{
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    padding: 18px 8px;
+    border-bottom: 1px solid var(--line);
+    transition: background .25s ease, padding .25s ease;
+  }
+  .awards-list li:hover{ background: var(--bg-warm); padding-left: 18px; }
+  .awards-list .a-num{
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .awards-list .a-name{
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(18px, 1.45vw, 24px);
+    line-height: 1.25; letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .awards-list .a-kind{
+    font-family: var(--mono); font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink-mute);
+    padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  @media (max-width: 640px){
+    .awards-list li{ grid-template-columns: 40px 1fr; }
+    .awards-list .a-kind{ display: none; }
+  }
+
+  /* Prospective CTA */
+  .pi-prospective{
+    margin: 0 var(--pad-x);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--bg-warm);
+    padding: clamp(32px, 4vw, 56px);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: start;
+  }
+  .pi-prospective h3{
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(32px, 3vw, 44px);
+    line-height: 1.0; letter-spacing: -0.015em;
+    margin: 0;
+  }
+  .pi-prospective h3 em{ color: var(--accent); }
+  .pi-prospective .pi-prose p{ max-width: 62ch; }
+  .pi-prospective .ps-actions{
+    margin-top: 18px;
+    display: flex; gap: 10px;
+  }
+
+  @media (max-width: 980px){
+    .pi-hero-grid{ grid-template-columns: 1fr; gap: 32px; }
+    .pi-hero-grid > figure.pi-portrait{ justify-self: start; }
+    .pi-portrait{ aspect-ratio: 1 / 1; max-width: 320px; padding: 20px; }
+    .pi-body-grid{ grid-template-columns: 1fr; }
+    .pi-body-grid.pi-body-grid--single{ grid-template-columns: 1fr; }
+    .pi-body-grid--single .pi-prose{ grid-column: 1; }
+    .pi-prospective{ grid-template-columns: 1fr; }
+  }
+</style>
+<script defer src="assets/js/nav.js"></script>
 </head>
-<body>
+<body data-page="people">
 
-<nav class="navbar">
-  <div class="container">
-    <a href="index.html" class="navbar-brand">Vidal Lab <span>Vision, Dynamics &amp; Learning</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="people.html">People</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="teaching.html">Teaching</a></li>
-      <li class="nav-dropdown">
-        <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">More <span class="dropdown-caret">&#9662;</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="talks.html">Talks</a></li>
-          <li><a href="tutorials.html">Tutorials</a></li>
-          <li><a href="data-code.html">Data &amp; Code</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<div class="page-header">
-  <div class="container">
-    <h1>René Vidal</h1>
-    <p>Principal Investigator</p>
-  </div>
-</div>
-
-<main class="container">
-
-  <section class="profile-hero">
-    <div class="profile-photo-col">
-      <img src="assets/img/headshots/rene-penn-directory.jpg" alt="René Vidal" class="profile-photo">
+<header class="nav" id="nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="28" height="28">
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="20" cy="20" r="18"/>
+          <path d="M4 20 Q12 4 20 20 T36 20"/>
+          <path d="M4 20 Q12 36 20 20 T36 20"/>
+        </g>
+      </svg>
+    </span>
+    <span class="brand-word"><em>Vidal</em>Lab<sup>↗</sup></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html" data-key="home"><span>01</span> Home</a>
+    <a href="people.html" data-key="people" class="active"><span>02</span> People</a>
+    <a href="research.html" data-key="research"><span>03</span> Research</a>
+    <div class="nav-more">
+      <button class="nav-more-btn" aria-haspopup="true" aria-expanded="false">
+        <span>04</span> More
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="nav-more-menu" role="menu">
+        <a href="teaching.html" data-key="teaching" role="menuitem"><span>a</span> Teaching</a>
+        <a href="talks.html" data-key="talks" role="menuitem"><span>b</span> Talks</a>
+        <a href="tutorials.html" data-key="tutorials" role="menuitem"><span>c</span> Tutorials</a>
+        <a href="data-code.html" data-key="data" role="menuitem"><span>d</span> Data &amp; Code</a>
+      </div>
     </div>
-    <div class="profile-info-col">
-      <h2 class="profile-name">René Vidal</h2>
-      <ul class="profile-titles">
+  </nav>
+</header>
+
+<section class="pi-hero">
+  <div class="pi-hero-meta">
+    <span><span class="tick"></span> § 02·1 — Principal Investigator</span>
+    <span class="mono">Director · IDEAS Center</span>
+  </div>
+  <div class="pi-hero-grid">
+    <figure class="pi-portrait">
+      <span class="pi-tag">PI · Director</span>
+      <img src="assets/img/headshots/rene-penn-directory.jpg" alt="Prof. René Vidal" />
+    </figure>
+    <div>
+      <h1 class="pi-display">René<br/><em>Vidal</em>.</h1>
+      <ul class="pi-roles">
         <li>Rachleff &amp; PIK University Professor of ESE, Radiology, CIS, Statistics and Data Science</li>
-        <li>School of Engineering &amp; Applied Science, Perelman School of Medicine, Wharton School</li>
+        <li>School of Engineering &amp; Applied Science · Perelman School of Medicine · Wharton School</li>
         <li>Director of the Center for Innovation in Data Engineering and Science (IDEAS)</li>
-        <li>Co-Chair of PennAI</li>
-        <li>University of Pennsylvania</li>
+        <li>Co-Chair of PennAI · University of Pennsylvania</li>
       </ul>
-      <div class="profile-contact">
-        <p><strong>Email:</strong> <a href="mailto:vidalr@seas.upenn.edu">vidalr [at] seas.upenn.edu</a></p>
-        <p><strong>Office:</strong> Amy Gutmann Hall, Room 609</p>
+      <dl class="pi-contact">
+        <dt>Email</dt>
+        <dd><a href="mailto:vidalr@seas.upenn.edu">vidalr [at] seas.upenn.edu</a></dd>
+        <dt>Office</dt>
+        <dd>Amy Gutmann Hall, Room 609</dd>
+        <dt>Scholar</dt>
+        <dd><a href="https://scholar.google.com/citations?user=uT8fgagAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="pi-section" id="bio">
+  <header class="section-head">
+    <div class="section-num">§ 02·1·a</div>
+    <h2><em>Biography</em></h2>
+  </header>
+  <div class="pi-body-grid pi-body-grid--single">
+    <div class="pi-prose">
+      <p>
+        René Vidal is the Rachleff and Penn Integrates Knowledge (PIK) University Professor of
+        <a href="http://www.ese.upenn.edu/">Electrical and Systems Engineering</a>,
+        <a href="https://www.pennmedicine.org/for-patients-and-visitors/find-a-program-or-service/radiology">Radiology</a>,
+        <a href="https://www.cis.upenn.edu/">Computer and Information Science</a>, and
+        <a href="https://statistics.wharton.upenn.edu/">Statistics and Data Science</a>
+        at the University of Pennsylvania, with appointments in the
+        <a href="https://www.seas.upenn.edu/">School of Engineering and Applied Science</a>,
+        <a href="https://www.med.upenn.edu/">Perelman School of Medicine</a>, and
+        <a href="https://www.wharton.upenn.edu/">Wharton School</a>.
+      </p>
+      <p>
+        He directs the <a href="http://ideas.upenn.edu/">Center for Innovation in Data Engineering and Science (IDEAS)</a>
+        and co-chairs <a href="https://ai.upenn.edu/">PennAI</a>. He is also the director of THEORINET, an
+        <a href="https://www.minds.jhu.edu/theorinet/">NSF–Simons Collaboration on the Mathematical Foundations of Deep Learning</a>,
+        an Amazon Scholar, and an Affiliated Chief Scientist at NORCE.
+      </p>
+      <p>
+        His current research focuses on the foundations of deep learning and trustworthy AI,
+        with applications in computer vision and biomedical data science.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="pi-section" id="awards">
+  <header class="section-head">
+    <div class="section-num">§ 02·1·b</div>
+    <h2>Honors &amp; <em>awards</em></h2>
+  </header>
+  <ul class="awards-list">
+    <li><span class="a-num">i.</span><span class="a-name">ACM Fellow</span><span class="a-kind">Fellowship</span></li>
+    <li><span class="a-num">ii.</span><span class="a-name">AIMBE Fellow</span><span class="a-kind">Fellowship</span></li>
+    <li><span class="a-num">iii.</span><span class="a-name">IEEE Fellow</span><span class="a-kind">Fellowship</span></li>
+    <li><span class="a-num">iv.</span><span class="a-name">IAPR Fellow</span><span class="a-kind">Fellowship</span></li>
+    <li><span class="a-num">v.</span><span class="a-name">Sloan Fellow</span><span class="a-kind">Fellowship</span></li>
+    <li><span class="a-num">vi.</span><span class="a-name">IEEE Edward J. McCluskey Technical Achievement Award</span><span class="a-kind">Award</span></li>
+    <li><span class="a-num">vii.</span><span class="a-name">D'Alembert Faculty Award</span><span class="a-kind">Award</span></li>
+    <li><span class="a-num">viii.</span><span class="a-name">J.K. Aggarwal Prize</span><span class="a-kind">Prize</span></li>
+    <li><span class="a-num">ix.</span><span class="a-name">ONR Young Investigator Award</span><span class="a-kind">Early career</span></li>
+    <li><span class="a-num">x.</span><span class="a-name">NSF CAREER Award</span><span class="a-kind">Early career</span></li>
+    <li><span class="a-num">xi.</span><span class="a-name">Best paper awards in machine learning, computer vision, controls, and medical robotics</span><span class="a-kind">Best paper</span></li>
+  </ul>
+</section>
+
+<section class="pi-section" id="prospective">
+  <header class="section-head">
+    <div class="section-num">§ 02·1·c</div>
+    <h2>Prospective <em>students</em></h2>
+  </header>
+  <div class="pi-prospective">
+    <h3>Get in <em>touch</em>.</h3>
+    <div class="pi-prose">
+      <p>
+        Prospective students interested in joining the group are welcome to get in touch by email.
+        When reaching out, please use a subject line containing the phrase
+        <strong>"Prospective Student – [Your Name]"</strong> so your message is properly identified.
+      </p>
+      <p>
+        In your email, include a brief introduction, your current degree program and institution,
+        and a concise description of your research interests and how they align with the group's work.
+        Attaching your CV and any relevant publications or projects is helpful.
+      </p>
+      <p>
+        Students with strong backgrounds in mathematics, statistics, or computer science — and an
+        interest in theoretical and applied aspects of machine learning — are particularly encouraged
+        to apply. Qualified applicants may be considered for research assistantships or graduate
+        positions through the department's programs.
+      </p>
+      <div class="ps-actions">
+        <a class="btn btn-primary" href="mailto:vidalr@seas.upenn.edu?subject=Prospective%20Student%20%E2%80%93%20%5BYour%20Name%5D">
+          <span>Email Prof. Vidal</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="people.html">Meet the lab</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="profile-section">
-    <h2>Biography</h2>
-    <p>René Vidal is the Rachleff and Penn Integrates Knowledge (PIK) University Professor of <a href="http://www.ese.upenn.edu/">Electrical and Systems Engineering</a>, <a href="https://www.pennmedicine.org/for-patients-and-visitors/find-a-program-or-service/radiology">Radiology</a>, <a href="https://www.cis.upenn.edu/">Computer and Information Science</a>, and <a href="https://statistics.wharton.upenn.edu/">Statistics and Data Science</a> at the University of Pennsylvania, with appointments in the <a href="https://www.seas.upenn.edu/">School of Engineering and Applied Science</a>, <a href="https://www.med.upenn.edu/">Perelman School of Medicine</a>, and <a href="https://www.wharton.upenn.edu/">Wharton School</a>. He is the Director of the <a href="http://ideas.upenn.edu/">Center for Innovation in Data Engineering and Science (IDEAS)</a> and Co-Chair of <a href="https://ai.upenn.edu/">PennAI</a>. He is also the director of THEORINET, an <a href="https://www.minds.jhu.edu/theorinet/">NSF-Simons Collaboration on the Mathematical Foundations of Deep Learning</a>, an Amazon Scholar, and an Affiliated Chief Scientist at NORCE.</p>
-<p>His current research focuses on the foundations of deep learning and trustworthy AI and its applications in computer vision and biomedical data science.</p>
-  </section>
-
-  <section class="profile-section">
-    <h2>Honors &amp; Awards</h2>
-    <ul class="awards-list">
-      <li>ACM Fellow</li>
-      <li>AIMBE Fellow</li>
-      <li>IEEE Fellow</li>
-      <li>IAPR Fellow</li>
-      <li>Sloan Fellow</li>
-      <li>IEEE Edward J. McCluskey Technical Achievement Award</li>
-      <li>D&#x27;Alembert Faculty Award</li>
-      <li>J.K. Aggarwal Prize</li>
-      <li>ONR Young Investigator Award</li>
-      <li>NSF CAREER Award</li>
-      <li>Best paper awards in machine learning, computer vision, controls, and medical robotics</li>
-    </ul>
-  </section>
-
-  <section class="profile-section">
-    <h2>News</h2>
-    <ul class="news-list">
-      <li>
-        <span class="date">2025</span>
-        <span>Announced <a href="#">Penn AI Council</a>.</span>
-      </li>
-    </ul>
-  </section>
-
-  <section class="profile-section">
-    <h2>Prospective Students</h2>
-    <p>Prospective students interested in joining the group are welcome to get in touch by email. When reaching out, please use a subject line containing the phrase <strong>"Prospective Student – [Your Name]"</strong> so your message is properly identified.</p>
-<p>In your email, include a brief introduction, your current degree program and institution, and a concise description of your research interests and how they align with the group's work. Attaching your CV and any relevant publications or projects is helpful.</p>
-<p>Students with strong backgrounds in mathematics, statistics, or computer science—and an interest in theoretical and applied aspects of machine learning—are particularly encouraged to apply. Qualified applicants may be considered for research assistantships or graduate positions through the department's programs.</p>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h4>Vidal Lab</h4>
-        <p>Vision, Dynamics &amp; Learning Lab<br>
-        University of Pennsylvania<br>
-        Department of Electrical and Systems Engineering<br>
-        Philadelphia, PA</p>
-      </div>
-      <div>
-        <h4>Links</h4>
-        <ul>
-          <li><a href="people.html">People</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="teaching.html">Teaching</a></li>
-          <li><a href="talks.html">Talks</a></li>
-          <li><a href="tutorials.html">Tutorials</a></li>
-          <li><a href="data-code.html">Data &amp; Code</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p>Prof. René Vidal<br>
-        <a href="mailto:vidalr@seas.upenn.edu">vidalr@seas.upenn.edu</a></p>
-      </div>
+<footer class="foot">
+  <div class="foot-mega" aria-hidden="true">VIDAL</div>
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="foot-h">Vidal Lab</div>
+      <p>Vision, Dynamics &amp; Learning<br/>University of Pennsylvania<br/>Department of Electrical &amp; Systems Engineering</p>
+      <p class="mono">Philadelphia, PA</p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Vidal Lab, University of Pennsylvania. All rights reserved.</p>
+    <div class="foot-col">
+      <div class="foot-h">Sitemap</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="tutorials.html">Tutorials</a></li>
+        <li><a href="data-code.html">Data &amp; Code</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <div class="foot-h">Contact</div>
+      <p>Prof. René Vidal<br/><a href="mailto:vidalr@seas.upenn.edu">vidalr@seas.upenn.edu</a></p>
+      <p>Amy Gutmann Hall, Room 609</p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-h">Join the Lab</div>
+      <p>We seek students at the boundary of mathematical foundations and impactful AI. PhD applications go through Penn ESE; postdoc and visitor inquiries direct to Prof. Vidal.</p>
+      <p><a href="mailto:vidalr@seas.upenn.edu">Email Prof. Vidal →</a></p>
+      <p class="mono dim">© 2026 Vidal Lab</p>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/page-shell.js"></script>
 </body>
 </html>
