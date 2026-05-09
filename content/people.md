@@ -7,6 +7,8 @@ carousel_photos:
     caption: "Vidal Lab"
   - src: assets/img/group/group-6.jpg
     caption: "Vidal Lab"
+  - src: assets/img/group/group-2022.jpg
+    caption: "Vidal Lab — 2022 (JHU)"
   - src: assets/img/group/group-2015.jpg
     caption: "Vidal Lab — 2015"
   - src: assets/img/group/group-2012.jpg

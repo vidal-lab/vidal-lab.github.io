@@ -70,21 +70,30 @@ project_carousel:
     image: assets/img/projects/hierarchical.png
     paper_url: "https://arxiv.org/abs/2602.11448"
 
-  - title: "Gradient Flow Learns Robust Classifiers"
-    subtitle: "for Orthonormal Gaussian Mixture Models"
-    authors: "Hancheng Min, René Vidal"
-    venue: "ICML 2025"
-    description: "Proves that vanilla gradient flow on a two-layer network provably converges to a maximally-robust classifier on orthonormal GMM data."
-    image: assets/img/projects/gradient_flow.png
-    paper_url: "https://hanchmin.github.io/assets/pdf/MV2025ICML.pdf"
+  - title: "Concept Lancet"
+    subtitle: "Image Editing with Compositional Representation Transplant"
+    authors: "Jinqi Luo, Tianjiao Ding, Kwan Ho Ryan Chan, Hancheng Min, Chris Callison-Burch, René Vidal"
+    venue: "CVPR 2025"
+    description: "A geometry-aware image editing framework that decomposes prompts into latent concept directions and transplants them with compositional control over the edit."
+    image: assets/img/projects/concept_lancet.png
+    project_url: "https://peterljq.github.io/project/colan/"
+    paper_url: "https://arxiv.org/abs/2504.02828"
 
-  - title: "Optimization Landscape of Neural Networks"
-    subtitle: "Cambridge University Press, 2022"
-    authors: "René Vidal, Zhihui Zhu, Benjamin D. Haeffele"
-    venue: "Book"
-    description: "A graduate-level treatment of the geometry and optimization of deep network loss surfaces, from matrix factorization to overparameterized networks."
-    image: assets/img/projects/optimization.jpg
-    project_url: "https://www.cambridge.org/core/books/optimization-landscape-of-neural-networks/"
+  - title: "Neural Collapse under Gradient Flow"
+    subtitle: "on Shallow ReLU Networks for Orthogonally Separable Data"
+    authors: "Hancheng Min, Zhihui Zhu, René Vidal"
+    venue: "NeurIPS 2025"
+    description: "Proves that gradient flow on shallow ReLU networks induces neural collapse for orthogonally separable data, characterizing the geometry of learned representations."
+    image: assets/img/projects/neural_collapse.png
+    paper_url: "https://arxiv.org/abs/2510.21078"
+
+  - title: "Edge of Stability"
+    subtitle: "Convergence Rates for Gradient Descent in Overparametrised Least Squares"
+    authors: "Lachlan E. MacDonald, Hancheng Min, Leandro Palma, Salma Tarmoun, Ziqing Xu, René Vidal"
+    venue: "NeurIPS 2025"
+    description: "Establishes convergence-rate guarantees for gradient descent operating at the edge of stability on overparameterised least-squares problems."
+    image: assets/img/projects/edge_of_stability.png
+    paper_url: "https://arxiv.org/abs/2510.17506"
 
 tutorials:
   - title: "Foundations of Interpretable AI"
@@ -122,13 +131,31 @@ news:
     text: "Paper on active binary testing accepted to ICML 2024."
 
 highlights:
-  - venue: "ICML 2025"
-    title: "Gradient Flow Provably Learns Robust Classifiers for Orthonormal GMMs"
-    authors: "Hancheng Min, René Vidal"
-    thumbnail: "assets/img/thumbnails/gradient_flow.png"
+  - venue: "NeurIPS 2025"
+    title: "Neural Collapse under Gradient Flow on Shallow ReLU Networks for Orthogonally Separable Data"
+    authors: "Hancheng Min, Zhihui Zhu, René Vidal"
+    thumbnail: "assets/img/thumbnails/neural_collapse.png"
     links:
       - text: "Paper"
-        url: "https://hanchmin.github.io/assets/pdf/MV2025ICML.pdf"
+        url: "https://arxiv.org/abs/2510.21078"
+
+  - venue: "NeurIPS 2025"
+    title: "Convergence Rates for Gradient Descent on the Edge of Stability in Overparametrised Least Squares"
+    authors: "Lachlan E. MacDonald, Hancheng Min, Leandro Palma, Salma Tarmoun, Ziqing Xu, René Vidal"
+    thumbnail: "assets/img/thumbnails/edge_of_stability.png"
+    links:
+      - text: "Paper"
+        url: "https://arxiv.org/abs/2510.17506"
+
+  - venue: "CVPR 2025"
+    title: "Concept Lancet: Image Editing with Compositional Representation Transplant"
+    authors: "Jinqi Luo, Tianjiao Ding, Kwan Ho Ryan Chan, Hancheng Min, Chris Callison-Burch, René Vidal"
+    thumbnail: "assets/img/thumbnails/concept_lancet.png"
+    links:
+      - text: "Project"
+        url: "https://peterljq.github.io/project/colan/"
+      - text: "Paper"
+        url: "https://arxiv.org/abs/2504.02828"
 
   - venue: "CVPR 2025"
     title: "Disentangling Safe and Unsafe Image Corruptions via Anisotropy and Locality"
@@ -187,12 +214,4 @@ highlights:
     links:
       - text: "Paper"
         url: "https://arxiv.org/abs/2501.08609"
-
-  - venue: "Cambridge University Press 2022"
-    title: "Optimization Landscape of Neural Networks"
-    authors: "René Vidal, Zhihui Zhu, Benjamin D. Haeffele"
-    thumbnail: "assets/img/thumbnails/optimization.jpg"
-    links:
-      - text: "Book"
-        url: "https://www.cambridge.org/core/books/optimization-landscape-of-neural-networks/"
 ---
