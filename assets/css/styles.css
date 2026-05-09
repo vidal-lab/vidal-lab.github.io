@@ -720,8 +720,10 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: var(--r-md);
-  background: var(--bg-warm);
-  object-fit: cover;
+  background: #ffffff;
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
   transition: filter .3s ease;
 }
 .pub-title{
