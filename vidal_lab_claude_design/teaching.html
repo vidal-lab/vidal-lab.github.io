@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css" />
-<link rel="stylesheet" href="assets/css/subpages.css" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="subpages.css" />
 </head>
 <body data-page="teaching">
 
@@ -21,7 +21,7 @@
     <div class="nav-more">
       <button class="nav-more-btn"><span>04</span> More <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="nav-more-menu">
-        <a href="teaching.html" data-key="teaching" class="active"><span>a</span> Teaching</a>
+        <a href="teaching.html" data-key="teaching"><span>a</span> Teaching</a>
         <a href="talks.html" data-key="talks"><span>b</span> Talks</a>
         <a href="tutorials.html" data-key="tutorials"><span>c</span> Tutorials</a>
         <a href="data-code.html" data-key="data"><span>d</span> Data &amp; Code</a>
@@ -33,7 +33,7 @@
 <section class="page-hero">
   <div class="page-hero-meta">
     <span><span class="tick"></span> § 04 — Teaching</span>
-    <span class="mono">24 courses · 2005 – present</span>
+    <span class="mono">22 courses · 2005 – present</span>
   </div>
   <h1 class="page-display">
     Two decades<br/>
@@ -45,11 +45,12 @@
   </p>
 </section>
 
+<!-- Currently teaching -->
 <section>
   <header class="section-head">
     <div class="section-num">§ 04·1</div>
     <h2>Currently <em>teaching</em></h2>
-    <p class="section-note">Active courses at Penn.</p>
+    <p class="section-note">Active courses this semester at Penn.</p>
   </header>
   <div class="featured-callout">
     <div class="fc-art">
@@ -70,6 +71,7 @@
   </div>
 </section>
 
+<!-- Course timeline -->
 <section style="margin-top:80px;" id="archive">
   <header class="section-head">
     <div class="section-num">§ 04·2</div>
@@ -79,11 +81,12 @@
   <div class="timeline" id="course-timeline"></div>
 </section>
 
+<!-- Themes -->
 <section style="margin-top:120px;">
   <header class="section-head">
     <div class="section-num">§ 04·3</div>
     <h2>Recurring <em>themes</em></h2>
-    <p class="section-note">Three threads that run through the courses.</p>
+    <p class="section-note">Three thread that run through the courses.</p>
   </header>
   <div class="card-grid">
     <div class="lab-card">
@@ -93,7 +96,7 @@
       </div>
       <div class="lab-card-num">i.</div>
       <h3>Mathematics of <em>Deep Learning</em></h3>
-      <p>From overparameterised loss landscapes to neural collapse — a coarse-grained tour of why deep networks generalize, and when they don't.</p>
+      <p>From overparameterised loss landscapes to neural collapse — a course-grained tour of why deep networks generalize, and when they don't.</p>
       <div class="lab-card-meta">JHU 2018 · 2019</div>
     </div>
     <div class="lab-card">
@@ -113,7 +116,7 @@
       </div>
       <div class="lab-card-num">iii.</div>
       <h3>Vision &amp; <em>Control</em></h3>
-      <p>Foundational courses in computer vision, signals &amp; systems, and linear systems theory — the building blocks for downstream research.</p>
+      <p>Foundational courses in computer vision, signals & systems, and linear systems theory — the building blocks for downstream research.</p>
       <div class="lab-card-meta">JHU 2005 · 2007 · 2013 · 2014</div>
     </div>
   </div>
@@ -122,7 +125,7 @@
 <section class="cta" style="margin-top:120px;">
   <div class="cta-inner">
     <h2 class="cta-title">Want to <em>take</em><br/>a course?</h2>
-    <p class="cta-note">Penn ESE/CIS graduate students can register for Deep Generative Models in the Fall.</p>
+    <p class="cta-note">Penn ESE/CIS graduate students can register for Deep Generative Models in Fall.</p>
     <div class="cta-actions">
       <a class="btn btn-primary btn-lg" href="https://vidal-lab.github.io/dgm/" target="_blank" rel="noopener">Current syllabus <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-ghost btn-lg" href="mailto:vidalr@seas.upenn.edu">Audit inquiry</a>
@@ -135,7 +138,7 @@
   <div class="foot-grid">
     <div class="foot-col">
       <div class="foot-h">Vidal Lab</div>
-      <p>Vision, Dynamics &amp; Learning<br/>University of Pennsylvania<br/>Department of Electrical &amp; Systems Engineering</p>
+      <p>Vision, Dynamics & Learning<br/>University of Pennsylvania<br/>Department of Electrical & Systems Engineering</p>
     </div>
     <div class="foot-col">
       <div class="foot-h">Sitemap</div>
@@ -163,30 +166,30 @@
 
 <script>
 window.COURSES = [
-  { sem:"Fall 2025",   code:"ESE-6450-001",            title:"Deep Generative Models",                    url:"https://vidal-lab.github.io/dgm/",                                            inst:"Penn" },
-  { sem:"Fall 2024",   code:"ESE-6450-001",            title:"Deep Generative Models",                    url:"https://vidal-lab.github.io/dgm/",                                            inst:"Penn" },
-  { sem:"Fall 2023",   code:"ESE-9000-004",            title:"Deep Generative Models",                    url:"",                                                                              inst:"Penn" },
-  { sem:"Fall 2019",   code:"EN.580.745",              title:"Mathematics of Deep Learning",              url:"http://www.vision.jhu.edu/teaching/learning/deeplearning19/",                  inst:"JHU"  },
-  { sem:"Fall 2018",   code:"EN.580.421/721",          title:"Biomedical Data Science",                   url:"http://www.vision.jhu.edu/teaching/learning/datascience18/",                   inst:"JHU"  },
-  { sem:"Fall 2018",   code:"EN.580.745",              title:"Mathematics of Deep Learning",              url:"http://www.vision.jhu.edu/teaching/learning/deeplearning18/",                  inst:"JHU"  },
-  { sem:"Fall 2017",   code:"MVA ENS",                 title:"Unsupervised Learning",                     url:"http://www.vision.jhu.edu/teaching/learning/learning17/mva-cachan-learning17.htm", inst:"ENS Cachan" },
-  { sem:"Spring 2017", code:"600.692",                 title:"Unsupervised Learning",                     url:"http://www.vision.jhu.edu/teaching/learning/learning17/",                      inst:"JHU"  },
-  { sem:"Spring 2016", code:"600.692",                 title:"Advanced Topics in Machine Learning",       url:"http://www.vision.jhu.edu/teaching/learning/learning16/",                      inst:"JHU"  },
-  { sem:"Fall 2014",   code:"600.461/661",             title:"Computer Vision",                           url:"http://www.vision.jhu.edu/teaching/vision/vision14/",                          inst:"JHU"  },
-  { sem:"Spring 2014", code:"600.692",                 title:"Advanced Topics in Machine Learning",       url:"http://www.vision.jhu.edu/teaching/learning/learning14/",                      inst:"JHU"  },
-  { sem:"Fall 2013",   code:"600.361/461",             title:"Computer Vision",                           url:"http://www.vision.jhu.edu/teaching/vision/vision13/",                          inst:"JHU"  },
-  { sem:"Spring 2011", code:"580.222",                 title:"Signals, Systems and Control",              url:"http://www.vision.jhu.edu/teaching/controls/2008/controls08.htm",              inst:"JHU"  },
-  { sem:"Spring 2010", code:"580.222",                 title:"Signals, Systems and Control",              url:"http://www.vision.jhu.edu/teaching/controls/2008/controls08.htm",              inst:"JHU"  },
-  { sem:"Spring 2010", code:"580.692/600.692",         title:"Advanced Topics in Machine Learning",       url:"http://www.vision.jhu.edu/teaching/learning/learning10",                       inst:"JHU"  },
-  { sem:"Spring 2009", code:"580.222",                 title:"Signals, Systems and Control",              url:"http://www.vision.jhu.edu/teaching/controls/2008/controls08.htm",              inst:"JHU"  },
-  { sem:"Spring 2009", code:"580.681/600.681",         title:"Advanced Topics in Computer Vision",        url:"http://www.vision.jhu.edu/teaching/vision09",                                  inst:"JHU"  },
-  { sem:"Spring 2008", code:"580.222",                 title:"Signals, Systems and Control",              url:"http://www.vision.jhu.edu/teaching/controls/2008/controls08.htm",              inst:"JHU"  },
-  { sem:"Spring 2008", code:"580.481/600.361/461",     title:"Computer Vision",                           url:"http://www.vision.jhu.edu/teaching/vision08/index.htm",                        inst:"JHU"  },
-  { sem:"Spring 2007", code:"580.222",                 title:"Signals, Systems and Control",              url:"http://www.vision.jhu.edu/teaching/controls/2007/controls07.htm",              inst:"JHU"  },
-  { sem:"Spring 2007", code:"530.616/580.616/520.601", title:"Introduction to Linear Systems Theory",     url:"http://www.vision.jhu.edu/teaching/linearsystems.htm",                         inst:"JHU"  },
-  { sem:"Fall 2006",   code:"580.692",                 title:"Learning Theory II",                        url:"http://www.vision.jhu.edu/teaching/learningtheory2.htm",                       inst:"JHU"  },
-  { sem:"Spring 2006", code:"580.222",                 title:"Signals, Systems and Control",              url:"http://www.vision.jhu.edu/teaching/controls/2007/controls07.htm",              inst:"JHU"  },
-  { sem:"Spring 2005", code:"BME 580.464",             title:"Advanced Topics in Computer Vision",        url:"http://www.vision.jhu.edu/teaching/vision05/index.htm",                        inst:"JHU"  }
+  { sem:"Fall 2025",   code:"ESE-6450-001", title:"Deep Generative Models", url:"https://vidal-lab.github.io/dgm/", inst:"Penn" },
+  { sem:"Fall 2024",   code:"ESE-6450-001", title:"Deep Generative Models", url:"https://vidal-lab.github.io/dgm/", inst:"Penn" },
+  { sem:"Fall 2023",   code:"ESE-9000-004", title:"Deep Generative Models", url:"", inst:"Penn" },
+  { sem:"Fall 2019",   code:"EN.580.745",   title:"Mathematics of Deep Learning", url:"http://www.vision.jhu.edu/teaching/learning/deeplearning19/", inst:"JHU" },
+  { sem:"Fall 2018",   code:"EN.580.421/721", title:"Biomedical Data Science", url:"http://www.vision.jhu.edu/teaching/learning/datascience18/", inst:"JHU" },
+  { sem:"Fall 2018",   code:"EN.580.745",   title:"Mathematics of Deep Learning", url:"http://www.vision.jhu.edu/teaching/learning/deeplearning18/", inst:"JHU" },
+  { sem:"Fall 2017",   code:"MVA ENS",      title:"Unsupervised Learning", url:"http://www.vision.jhu.edu/teaching/learning/learning17/mva-cachan-learning17.htm", inst:"ENS Cachan" },
+  { sem:"Spring 2017", code:"600.692",      title:"Unsupervised Learning", url:"http://www.vision.jhu.edu/teaching/learning/learning17/", inst:"JHU" },
+  { sem:"Spring 2016", code:"600.692",      title:"Advanced Topics in Machine Learning", url:"http://www.vision.jhu.edu/teaching/learning/learning16/", inst:"JHU" },
+  { sem:"Fall 2014",   code:"600.461/661",  title:"Computer Vision", url:"http://www.vision.jhu.edu/teaching/vision/vision14/", inst:"JHU" },
+  { sem:"Spring 2014", code:"600.692",      title:"Advanced Topics in Machine Learning", url:"http://www.vision.jhu.edu/teaching/learning/learning14/", inst:"JHU" },
+  { sem:"Fall 2013",   code:"600.361/461",  title:"Computer Vision", url:"http://www.vision.jhu.edu/teaching/vision/vision13/", inst:"JHU" },
+  { sem:"Spring 2011", code:"580.222",      title:"Signals, Systems and Control", url:"http://www.vision.jhu.edu/teaching/controls/2008/controls08.htm", inst:"JHU" },
+  { sem:"Spring 2010", code:"580.222",      title:"Signals, Systems and Control", url:"http://www.vision.jhu.edu/teaching/controls/2008/controls08.htm", inst:"JHU" },
+  { sem:"Spring 2010", code:"580.692/600.692", title:"Advanced Topics in Machine Learning", url:"http://www.vision.jhu.edu/teaching/learning/learning10", inst:"JHU" },
+  { sem:"Spring 2009", code:"580.222",      title:"Signals, Systems and Control", url:"http://www.vision.jhu.edu/teaching/controls/2008/controls08.htm", inst:"JHU" },
+  { sem:"Spring 2009", code:"580.681/600.681", title:"Advanced Topics in Computer Vision", url:"http://www.vision.jhu.edu/teaching/vision09", inst:"JHU" },
+  { sem:"Spring 2008", code:"580.222",      title:"Signals, Systems and Control", url:"http://www.vision.jhu.edu/teaching/controls/2008/controls08.htm", inst:"JHU" },
+  { sem:"Spring 2008", code:"580.481/600.361/461", title:"Computer Vision", url:"http://www.vision.jhu.edu/teaching/vision08/index.htm", inst:"JHU" },
+  { sem:"Spring 2007", code:"580.222",      title:"Signals, Systems and Control", url:"http://www.vision.jhu.edu/teaching/controls/2007/controls07.htm", inst:"JHU" },
+  { sem:"Spring 2007", code:"530.616/580.616/520.601", title:"Introduction to Linear Systems Theory", url:"http://www.vision.jhu.edu/teaching/linearsystems.htm", inst:"JHU" },
+  { sem:"Fall 2006",   code:"580.692",      title:"Learning Theory II", url:"http://www.vision.jhu.edu/teaching/learningtheory2.htm", inst:"JHU" },
+  { sem:"Spring 2006", code:"580.222",      title:"Signals, Systems and Control", url:"http://www.vision.jhu.edu/teaching/controls/2007/controls07.htm", inst:"JHU" },
+  { sem:"Spring 2005", code:"BME 580.464", title:"Advanced Topics in Computer Vision", url:"http://www.vision.jhu.edu/teaching/vision05/index.htm", inst:"JHU" },
 ];
 
 const tl = document.getElementById('course-timeline');
@@ -203,6 +206,7 @@ window.COURSES.forEach(c => {
   tl.appendChild(a);
 });
 
+// dgm canvas
 (function(){
   const cv = document.getElementById('dgm-canvas');
   if(!cv) return;
@@ -212,6 +216,7 @@ window.COURSES.forEach(c => {
     const w = cv.clientWidth, h = cv.clientHeight;
     cv.width = w*dpr; cv.height = h*dpr;
     ctx.setTransform(dpr,0,0,dpr,0,0);
+    // density iso-contours
     for(let i=0;i<14;i++){
       ctx.beginPath();
       const cx = w*0.7, cy = h*0.5;
@@ -227,6 +232,7 @@ window.COURSES.forEach(c => {
       ctx.lineWidth = 0.9;
       ctx.stroke();
     }
+    // sample particles
     for(let i=0; i<80; i++){
       const a = Math.random()*Math.PI*2;
       const r = 30 + Math.random()*260;
@@ -239,6 +245,6 @@ window.COURSES.forEach(c => {
   draw(); window.addEventListener('resize', draw);
 })();
 </script>
-<script src="assets/js/page-shell.js"></script>
+<script src="page-shell.js"></script>
 </body>
 </html>

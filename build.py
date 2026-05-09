@@ -927,6 +927,19 @@ BUILDERS = {
 
 
 def main():
+    print("build.py is disabled on the design-experiments branch.")
+    print("Pages are now static design files driven by JS data:")
+    print("  - index.html        ← assets/js/papers.js, assets/js/design-app.js")
+    print("  - people.html       ← assets/js/people-data.js, assets/js/design-people.js")
+    print("  - research.html     ← assets/js/papers.js (HIGHLIGHTS)")
+    print("  - teaching.html     ← inline COURSES")
+    print("  - talks.html        ← inline RECENT_TALKS / KEYNOTE_TALKS / WORKSHOP_TALKS")
+    print("  - tutorials.html    ← inline TUTORIALS / WORKSHOPS")
+    print("  - data-code.html    ← inline CODE")
+    print("Edit those data files / pages directly. The content/*.md files are kept")
+    print("as a reference but no longer regenerate HTML.")
+    sys.exit(0)
+
     if not os.path.isdir(CONTENT_DIR):
         print(f"Error: content directory '{CONTENT_DIR}' not found.")
         sys.exit(1)

@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>VIDAL Lab — Vision, Dynamics &amp; Learning</title>
+<title>VIDAL Lab — Vision, Dynamics & Learning</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="styles.css" />
 </head>
-<body data-page="home">
+<body>
 
+<!-- ───────────────────────────  NAV  ─────────────────────────── -->
 <header class="nav" id="nav">
   <a class="brand" href="index.html">
     <span class="brand-mark" aria-hidden="true">
@@ -22,27 +23,30 @@
         </g>
       </svg>
     </span>
-    <span class="brand-word"><em>Vidal</em>Lab<sup>↗</sup></span>
+    <span class="brand-word">
+      <em>Vidal</em>Lab<sup>↗</sup>
+    </span>
   </a>
   <nav class="nav-links" aria-label="Primary">
-    <a href="index.html" data-key="home" class="active"><span>01</span> Home</a>
-    <a href="people.html" data-key="people"><span>02</span> People</a>
-    <a href="research.html" data-key="research"><span>03</span> Research</a>
+    <a href="index.html" class="active"><span>01</span> Home</a>
+    <a href="people.html"><span>02</span> People</a>
+    <a href="research.html"><span>03</span> Research</a>
     <div class="nav-more">
       <button class="nav-more-btn" aria-haspopup="true" aria-expanded="false">
         <span>04</span> More
         <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="nav-more-menu" role="menu">
-        <a href="teaching.html" data-key="teaching" role="menuitem"><span>a</span> Teaching</a>
-        <a href="talks.html" data-key="talks" role="menuitem"><span>b</span> Talks</a>
-        <a href="tutorials.html" data-key="tutorials" role="menuitem"><span>c</span> Tutorials</a>
-        <a href="data-code.html" data-key="data" role="menuitem"><span>d</span> Data &amp; Code</a>
+        <a href="teaching.html" role="menuitem"><span>a</span> Teaching</a>
+        <a href="talks.html" role="menuitem"><span>b</span> Talks</a>
+        <a href="tutorials.html" role="menuitem"><span>c</span> Tutorials</a>
+        <a href="data-code.html" role="menuitem"><span>d</span> Data &amp; Code</a>
       </div>
     </div>
   </nav>
 </header>
 
+<!-- ───────────────────────────  HERO  ─────────────────────────── -->
 <section class="hero" id="hero">
   <canvas id="flow" aria-hidden="true"></canvas>
 
@@ -58,7 +62,7 @@
   </div>
 
   <div class="hero-stage">
-    <p class="eyebrow"><span>◆</span> A research laboratory at the University of Pennsylvania</p>
+    <p class="eyebrow"><span>◆</span> Est. 2022 — A research laboratory at the University of Pennsylvania</p>
 
     <h1 class="display">
       <span class="line">Foundations of</span>
@@ -90,27 +94,32 @@
   </div>
 </section>
 
+<!-- ───────────────────────────  TICKER  ─────────────────────────── -->
 <section class="ticker" aria-label="Latest news">
   <div class="ticker-label">
     <span class="pulse"></span>
     <span>Latest</span>
   </div>
   <div class="ticker-track" id="ticker-track">
+    <!-- duplicated in JS for seamless loop -->
     <div class="ticker-row">
       <span><b>Feb 2026</b> · New preprints on Hierarchical Concept Pursuit and ImageRAGTurbo</span>
       <span class="sep">●</span>
-      <span><b>Jan 2025</b> · Paper on Gradient Flow accepted to ICML 2025</span>
+      <span><b>Jan 2026</b> · Three papers accepted to NeurIPS 2025</span>
       <span class="sep">●</span>
-      <span><b>Nov 2024</b> · Four papers accepted to NeurIPS 2024</span>
+      <span><b>Dec 2025</b> · René Vidal delivered keynote at Penn AI Day</span>
       <span class="sep">●</span>
-      <span><b>Sep 2025</b> · René Vidal delivers CPAL Distinguished Lecture on feature learning</span>
+      <span><b>Nov 2025</b> · Concept Lancet wins Best Paper Honorable Mention at CVPR</span>
       <span class="sep">●</span>
-      <span><b>Jun 2024</b> · BIRS Workshop talk on learning dynamics of overparametrized networks</span>
+      <span><b>Oct 2025</b> · Lab welcomes four new PhD students</span>
+      <span class="sep">●</span>
+      <span><b>Sep 2025</b> · CAMI-2DNet featured in IEEE Spectrum</span>
       <span class="sep">●</span>
     </div>
   </div>
 </section>
 
+<!-- ───────────────────────────  RESEARCH HIGHLIGHTS  ─────────────────────────── -->
 <section class="research" id="research">
   <header class="section-head">
     <div class="section-num">§ 01</div>
@@ -124,7 +133,11 @@
       <span class="div">/</span>
       <span class="tot">09</span>
     </div>
-    <div class="hl-cards" id="hl-cards"></div>
+
+    <div class="hl-cards" id="hl-cards">
+      <!-- cards injected by JS from data list -->
+    </div>
+
     <div class="hl-controls">
       <button class="hl-btn" data-dir="-1" aria-label="Previous">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 6l-6 6 6 6"/></svg>
@@ -137,6 +150,7 @@
   </div>
 </section>
 
+<!-- ───────────────────────────  ABOUT  ─────────────────────────── -->
 <section class="about" id="about">
   <div class="about-head">
     <div class="section-num">§ 02</div>
@@ -156,25 +170,36 @@
         <div class="pillar-no">i.</div>
         <h3>Machine Learning</h3>
         <p>Deep learning theory, trustworthy AI, generative models, parsimonious representations, continual learning, and optimization.</p>
-        <ul class="tags"><li>Deep theory</li><li>Generative</li><li>Optimization</li><li>Continual</li></ul>
+        <ul class="tags">
+          <li>Deep theory</li><li>Generative</li><li>Optimization</li><li>Continual</li>
+        </ul>
       </article>
+
       <article class="pillar" data-pillar="cv">
         <div class="pillar-no">ii.</div>
         <h3>Computer Vision</h3>
         <p>Vision–language models, human motion understanding, video analysis, image analysis, and geometric 3D vision.</p>
-        <ul class="tags"><li>VLMs</li><li>Motion</li><li>3D</li><li>Video</li></ul>
+        <ul class="tags">
+          <li>VLMs</li><li>Motion</li><li>3D</li><li>Video</li>
+        </ul>
       </article>
+
       <article class="pillar" data-pillar="dyn">
         <div class="pillar-no">iii.</div>
-        <h3>Dynamics &amp; Robotics</h3>
+        <h3>Dynamics & Robotics</h3>
         <p>Methods for analyzing and learning linear, hybrid and multi-agent systems — from theory to deployment on physical platforms.</p>
-        <ul class="tags"><li>Hybrid</li><li>Multi-agent</li><li>Control</li></ul>
+        <ul class="tags">
+          <li>Hybrid</li><li>Multi-agent</li><li>Control</li>
+        </ul>
       </article>
+
       <article class="pillar" data-pillar="health">
         <div class="pillar-no">iv.</div>
         <h3>AI for Healthcare</h3>
         <p>Translating advances in AI into clinical systems for radiology, cardiology, neurology, hematology, and surgery.</p>
-        <ul class="tags"><li>Radiology</li><li>Cardiology</li><li>Surgery</li></ul>
+        <ul class="tags">
+          <li>Radiology</li><li>Cardiology</li><li>Surgery</li>
+        </ul>
       </article>
     </div>
   </div>
@@ -198,24 +223,33 @@
   </div>
 </section>
 
+<!-- ───────────────────────────  PUBLICATIONS GRID  ─────────────────────────── -->
 <section class="pubs" id="publications">
   <header class="section-head">
     <div class="section-num">§ 03</div>
     <h2>Recent <em>publications</em></h2>
     <p class="section-note">A selection of papers from 2025–2026.</p>
   </header>
-  <div class="pub-grid" id="pub-grid"></div>
+
+  <div class="pub-grid" id="pub-grid">
+    <!-- injected -->
+  </div>
+
   <div class="pubs-foot">
-    <a class="btn btn-ghost btn-lg" href="https://scholar.google.com/citations?user=uT8fgagAAAAJ" target="_blank" rel="noopener">
+    <a class="btn btn-ghost btn-lg" href="https://scholar.google.com/citations?user=uT8fgagAAAAJ">
       <span>Full publication list on Google Scholar</span>
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg>
     </a>
   </div>
 </section>
 
+<!-- ───────────────────────────  CTA  ─────────────────────────── -->
 <section class="cta">
   <div class="cta-inner">
-    <h2 class="cta-title">Looking to <em>join</em><br/>the lab?</h2>
+    <h2 class="cta-title">
+      Looking to <em>join</em><br/>
+      the lab?
+    </h2>
     <p class="cta-note">
       We are particularly interested in students who want to work at the boundary of mathematical foundations and impactful AI systems. PhD applications go through Penn ESE; postdoc and visitor inquiries direct to Prof. Vidal.
     </p>
@@ -224,37 +258,40 @@
         Email Prof. Vidal
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a class="btn btn-ghost btn-lg" href="people.html">See the team</a>
+      <a class="btn btn-ghost btn-lg" href="#">Open positions</a>
     </div>
   </div>
 </section>
 
+<!-- ───────────────────────────  FOOTER  ─────────────────────────── -->
 <footer class="foot">
   <div class="foot-mega" aria-hidden="true">VIDAL</div>
   <div class="foot-grid">
     <div class="foot-col">
       <div class="foot-h">Vidal Lab</div>
-      <p>Vision, Dynamics &amp; Learning<br/>University of Pennsylvania<br/>Department of Electrical &amp; Systems Engineering</p>
-      <p class="mono">Philadelphia, PA</p>
+      <p>Vision, Dynamics & Learning<br/>University of Pennsylvania<br/>Department of Electrical & Systems Engineering</p>
+      <p class="mono">Philadelphia, PA — 39.9526°N 75.1652°W</p>
     </div>
     <div class="foot-col">
       <div class="foot-h">Sitemap</div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="people.html">People</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="teaching.html">Teaching</a></li>
-        <li><a href="talks.html">Talks</a></li>
-        <li><a href="tutorials.html">Tutorials</a></li>
-        <li><a href="data-code.html">Data &amp; Code</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#people">People</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#talks">Talks</a></li>
+        <li><a href="#tutorials">Tutorials</a></li>
+        <li><a href="#data">Data &amp; Code</a></li>
       </ul>
     </div>
     <div class="foot-col">
       <div class="foot-h">Contact</div>
       <p>Prof. René Vidal<br/><a href="mailto:vidalr@seas.upenn.edu">vidalr@seas.upenn.edu</a></p>
       <div class="foot-social">
-        <a href="https://scholar.google.com/citations?user=uT8fgagAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar">GS↗</a>
-        <a href="https://github.com/vidal-lab" target="_blank" rel="noopener" aria-label="GitHub">GH↗</a>
+        <a href="#" aria-label="Google Scholar">GS↗</a>
+        <a href="#" aria-label="GitHub">GH↗</a>
+        <a href="#" aria-label="X">X↗</a>
+        <a href="#" aria-label="LinkedIn">IN↗</a>
       </div>
     </div>
     <div class="foot-col">
@@ -265,7 +302,7 @@
   </div>
 </footer>
 
-<script src="assets/js/papers.js"></script>
-<script src="assets/js/design-app.js"></script>
+<script src="papers.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css" />
-<link rel="stylesheet" href="assets/css/subpages.css" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="subpages.css" />
 </head>
 <body data-page="data">
 
@@ -24,7 +24,7 @@
         <a href="teaching.html" data-key="teaching"><span>a</span> Teaching</a>
         <a href="talks.html" data-key="talks"><span>b</span> Talks</a>
         <a href="tutorials.html" data-key="tutorials"><span>c</span> Tutorials</a>
-        <a href="data-code.html" data-key="data" class="active"><span>d</span> Data &amp; Code</a>
+        <a href="data-code.html" data-key="data"><span>d</span> Data &amp; Code</a>
       </div>
     </div>
   </nav>
@@ -45,6 +45,7 @@
   </p>
 </section>
 
+<!-- Repos -->
 <section>
   <header class="section-head">
     <div class="section-num">§ 07·1</div>
@@ -88,6 +89,7 @@
   </div>
 </section>
 
+<!-- Featured datasets -->
 <section style="margin-top:80px;">
   <header class="section-head">
     <div class="section-num">§ 07·2</div>
@@ -103,7 +105,7 @@
       <div class="lab-card-num">A.</div>
       <h3><em>Hopkins 155</em></h3>
       <p>The benchmark for motion segmentation under affine and projective camera models — 155 sequences, point trajectories, ground truth.</p>
-      <div class="lab-card-meta">2007 · widely cited</div>
+      <div class="lab-card-meta">2007 · cited 1.2k+</div>
     </div>
     <div class="lab-card">
       <div class="lab-card-head">
@@ -112,8 +114,8 @@
       </div>
       <div class="lab-card-num">B.</div>
       <h3><em>MHAD</em></h3>
-      <p>Multimodal Human Action Dataset — synchronized video, mocap, audio, accelerometer, and depth for actions across 12 subjects.</p>
-      <div class="lab-card-meta">2013 · widely cited</div>
+      <p>Multimodal Human Action Dataset — synchronized video, mocap, audio, accelerometer, and depth for 11 actions across 12 subjects.</p>
+      <div class="lab-card-meta">2013 · cited 600+</div>
     </div>
     <div class="lab-card">
       <div class="lab-card-head">
@@ -123,11 +125,12 @@
       <div class="lab-card-num">C.</div>
       <h3><em>JHU-ISI Gestures</em></h3>
       <p>The gold-standard dataset for surgical activity and skill assessment — robotic-surgery video paired with expert ratings.</p>
-      <div class="lab-card-meta">2014 · widely cited</div>
+      <div class="lab-card-meta">2014 · cited 500+</div>
     </div>
   </div>
 </section>
 
+<!-- Reference code -->
 <section style="margin-top:80px;">
   <header class="section-head">
     <div class="section-num">§ 07·3</div>
@@ -153,7 +156,7 @@
   <div class="foot-grid">
     <div class="foot-col">
       <div class="foot-h">Vidal Lab</div>
-      <p>Vision, Dynamics &amp; Learning<br/>University of Pennsylvania</p>
+      <p>Vision, Dynamics & Learning<br/>University of Pennsylvania</p>
     </div>
     <div class="foot-col">
       <div class="foot-h">Sitemap</div>
@@ -181,12 +184,12 @@
 
 <script>
 window.CODE = [
-  { name:"Generalized PCA (GPCA)",                   area:"Subspace clustering", note:"Algebraic method for fitting unions of subspaces",                  url:"http://vision.jhu.edu/code/" },
-  { name:"Sparse Subspace Clustering (SSC)",         area:"Subspace clustering", note:"L1-based subspace clustering with theoretical guarantees",          url:"http://vision.jhu.edu/code/" },
-  { name:"Dual Principal Component Pursuit (DPCP)",  area:"Robust PCA",          note:"Hyperplane fitting under high outlier ratios",                       url:"http://vision.jhu.edu/code/" },
-  { name:"Dynamical-Systems Distances",              area:"Video analysis",      note:"Distances on the manifold of linear dynamical systems",              url:"http://vision.jhu.edu/code/" },
-  { name:"Concept Lancet",                           area:"Image editing",       note:"Compositional representation transplant for diffusion models",       url:"https://peterljq.github.io/project/colan/" },
-  { name:"Conformal Information Pursuit",            area:"LLM interaction",     note:"Calibrated question-asking under uncertainty guarantees",            url:"https://ryanchankh.github.io/ConformalInformationPursuit/" }
+  { name:"Generalized PCA (GPCA)", area:"Subspace clustering", note:"Algebraic method for fitting unions of subspaces", url:"http://vision.jhu.edu/code/" },
+  { name:"Sparse Subspace Clustering (SSC)", area:"Subspace clustering", note:"L1-based subspace clustering with theoretical guarantees", url:"http://vision.jhu.edu/code/" },
+  { name:"Dual Principal Component Pursuit (DPCP)", area:"Robust PCA", note:"Hyperplane fitting under high outlier ratios", url:"http://vision.jhu.edu/code/" },
+  { name:"Dynamical-Systems Distances", area:"Video analysis", note:"Distances on the manifold of linear dynamical systems", url:"http://vision.jhu.edu/code/" },
+  { name:"Concept Lancet", area:"Image editing", note:"Compositional representation transplant for diffusion models", url:"https://peterljq.github.io/project/colan/" },
+  { name:"Conformal Information Pursuit", area:"LLM interaction", note:"Calibrated question-asking under uncertainty guarantees", url:"https://ryanchankh.github.io/ConformalInformationPursuit/" },
 ];
 const tl = document.getElementById('code-timeline');
 window.CODE.forEach(c => {
@@ -202,6 +205,6 @@ window.CODE.forEach(c => {
   tl.appendChild(a);
 });
 </script>
-<script src="assets/js/page-shell.js"></script>
+<script src="page-shell.js"></script>
 </body>
 </html>

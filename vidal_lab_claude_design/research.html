@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css" />
-<link rel="stylesheet" href="assets/css/subpages.css" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="subpages.css" />
 </head>
 <body data-page="research">
 
@@ -28,7 +28,7 @@
   <nav class="nav-links" aria-label="Primary">
     <a href="index.html" data-key="home"><span>01</span> Home</a>
     <a href="people.html" data-key="people"><span>02</span> People</a>
-    <a href="research.html" data-key="research" class="active"><span>03</span> Research</a>
+    <a href="research.html" data-key="research"><span>03</span> Research</a>
     <div class="nav-more">
       <button class="nav-more-btn" aria-haspopup="true" aria-expanded="false">
         <span>04</span> More
@@ -59,6 +59,7 @@
   </p>
 </section>
 
+<!-- Research areas -->
 <section>
   <header class="section-head">
     <div class="section-num">§ 03·1</div>
@@ -102,6 +103,7 @@
   </div>
 </section>
 
+<!-- Featured project -->
 <section style="margin-top:80px">
   <header class="section-head">
     <div class="section-num">§ 03·2</div>
@@ -127,6 +129,7 @@
   </div>
 </section>
 
+<!-- Project list -->
 <section style="margin-top:80px">
   <header class="section-head">
     <div class="section-num">§ 03·3</div>
@@ -142,7 +145,8 @@
   </div>
 </section>
 
-<section style="margin: 100px 0 0;" class="affiliations">
+<!-- Affiliations -->
+<section style="margin: 100px 0 0;" class="affiliations" >
   <div style="margin: 0 var(--pad-x);">
     <span class="aff-label">Affiliated centers</span>
     <div class="aff-marquee" style="margin-top: 24px;">
@@ -162,6 +166,7 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta" style="margin-top:120px;">
   <div class="cta-inner">
     <h2 class="cta-title">Looking to <em>collaborate</em>?</h2>
@@ -178,7 +183,7 @@
   <div class="foot-grid">
     <div class="foot-col">
       <div class="foot-h">Vidal Lab</div>
-      <p>Vision, Dynamics &amp; Learning<br/>University of Pennsylvania<br/>Department of Electrical &amp; Systems Engineering</p>
+      <p>Vision, Dynamics & Learning<br/>University of Pennsylvania<br/>Department of Electrical & Systems Engineering</p>
       <p class="mono">Philadelphia, PA</p>
     </div>
     <div class="foot-col">
@@ -205,9 +210,10 @@
   </div>
 </footer>
 
-<script src="assets/js/papers.js"></script>
-<script src="assets/js/page-shell.js"></script>
+<script src="papers.js"></script>
+<script src="page-shell.js"></script>
 <script>
+// project list
 (function(){
   const root = document.getElementById('proj-list');
   const data = window.HIGHLIGHTS || [];
@@ -230,6 +236,7 @@
     `;
     root.appendChild(row);
   });
+  // draw streamline thumbnails
   setTimeout(() => {
     document.querySelectorAll('.pr-thumb').forEach(cv => {
       const ctx = cv.getContext('2d');
@@ -260,6 +267,7 @@
   }, 60);
 })();
 
+// featured artwork
 (function(){
   const cv = document.getElementById('fc-canvas');
   if(!cv) return;
@@ -269,6 +277,7 @@
     const w = cv.clientWidth, h = cv.clientHeight;
     cv.width = w*dpr; cv.height = h*dpr;
     ctx.setTransform(dpr,0,0,dpr,0,0);
+    // concentric question-tree visualization
     const cx = w*0.7, cy = h*0.5;
     for(let r=0;r<300;r+=12){
       ctx.beginPath();
@@ -286,6 +295,7 @@
       ctx.lineWidth = 0.7;
       ctx.stroke();
     }
+    // dots
     for(let i=0;i<70;i++){
       const a = Math.random()*Math.PI*2;
       const r = 60 + Math.random()*240;

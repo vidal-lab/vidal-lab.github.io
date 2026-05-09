@@ -1,5 +1,7 @@
 # UPDATE.md — Refresh the Vidal Lab website
 
+> **Branch note:** on `design-experiments` the site uses a redesigned static-HTML layout driven by JS data. `build.py` is disabled. Edit pages and `assets/js/*.js` data files directly. The instructions below describe the legacy `content/*.md` + `build.py` flow on `main`.
+
 Run this whenever the lab needs its homepage refreshed. The procedure is split into two independent tasks; do both unless the user says otherwise.
 
 ## Conventions

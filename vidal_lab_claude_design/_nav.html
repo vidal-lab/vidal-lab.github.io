@@ -1,0 +1,32 @@
+<!-- Shared nav fragment loaded by sub-pages via fetch+inject (kept inline below for static fallback) -->
+<header class="nav" id="nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="28" height="28">
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="20" cy="20" r="18"/>
+          <path d="M4 20 Q12 4 20 20 T36 20"/>
+          <path d="M4 20 Q12 36 20 20 T36 20"/>
+        </g>
+      </svg>
+    </span>
+    <span class="brand-word"><em>Vidal</em>Lab<sup>↗</sup></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html" data-key="home"><span>01</span> Home</a>
+    <a href="people.html" data-key="people"><span>02</span> People</a>
+    <a href="research.html" data-key="research"><span>03</span> Research</a>
+    <div class="nav-more">
+      <button class="nav-more-btn" aria-haspopup="true" aria-expanded="false">
+        <span>04</span> More
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="nav-more-menu" role="menu">
+        <a href="teaching.html" data-key="teaching" role="menuitem"><span>a</span> Teaching</a>
+        <a href="talks.html" data-key="talks" role="menuitem"><span>b</span> Talks</a>
+        <a href="tutorials.html" data-key="tutorials" role="menuitem"><span>c</span> Tutorials</a>
+        <a href="data-code.html" data-key="data" role="menuitem"><span>d</span> Data &amp; Code</a>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -7,10 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css" />
-<link rel="stylesheet" href="assets/css/people.css" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="people.css" />
 </head>
-<body data-page="people">
+<body>
 
 <header class="nav" id="nav">
   <a class="brand" href="index.html">
@@ -26,24 +26,25 @@
     <span class="brand-word"><em>Vidal</em>Lab<sup>↗</sup></span>
   </a>
   <nav class="nav-links" aria-label="Primary">
-    <a href="index.html" data-key="home"><span>01</span> Home</a>
-    <a href="people.html" data-key="people" class="active"><span>02</span> People</a>
-    <a href="research.html" data-key="research"><span>03</span> Research</a>
+    <a href="index.html"><span>01</span> Home</a>
+    <a href="people.html" class="active"><span>02</span> People</a>
+    <a href="index.html#research"><span>03</span> Research</a>
     <div class="nav-more">
       <button class="nav-more-btn" aria-haspopup="true" aria-expanded="false">
         <span>04</span> More
         <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="nav-more-menu" role="menu">
-        <a href="teaching.html" data-key="teaching" role="menuitem"><span>a</span> Teaching</a>
-        <a href="talks.html" data-key="talks" role="menuitem"><span>b</span> Talks</a>
-        <a href="tutorials.html" data-key="tutorials" role="menuitem"><span>c</span> Tutorials</a>
-        <a href="data-code.html" data-key="data" role="menuitem"><span>d</span> Data &amp; Code</a>
+        <a href="#teaching" role="menuitem"><span>a</span> Teaching</a>
+        <a href="#talks" role="menuitem"><span>b</span> Talks</a>
+        <a href="#tutorials" role="menuitem"><span>c</span> Tutorials</a>
+        <a href="#data" role="menuitem"><span>d</span> Data &amp; Code</a>
       </div>
     </div>
   </nav>
 </header>
 
+<!-- ────────────────  PEOPLE HERO  ──────────────── -->
 <section class="people-hero">
   <div class="people-hero-meta">
     <span><span class="tick"></span> § 02 — People</span>
@@ -57,15 +58,17 @@
   </p>
 </section>
 
+<!-- ────────────────  PI  ──────────────── -->
 <section class="pi-section" id="pi">
   <header class="section-head">
     <div class="section-num">§ 02·1</div>
     <h2>Principal <em>investigator</em></h2>
     <p class="section-note">The lab is led by Prof. René Vidal.</p>
   </header>
-  <div class="pi-card" id="pi-card"></div>
+  <div class="pi-card" id="pi-card"><!-- injected --></div>
 </section>
 
+<!-- ────────────────  STAFF  ──────────────── -->
 <section class="people-section" id="staff">
   <header class="section-head">
     <div class="section-num">§ 02·2</div>
@@ -75,6 +78,7 @@
   <div class="people-grid" id="staff-grid"></div>
 </section>
 
+<!-- ────────────────  PHD STUDENTS  ──────────────── -->
 <section class="people-section" id="phd">
   <header class="section-head">
     <div class="section-num">§ 02·3</div>
@@ -84,6 +88,7 @@
   <div class="people-grid people-grid-lg" id="phd-grid"></div>
 </section>
 
+<!-- ────────────────  ALUMNI  ──────────────── -->
 <section class="alumni-section" id="alumni">
   <header class="section-head">
     <div class="section-num">§ 02·4</div>
@@ -94,12 +99,17 @@
   <div class="alumni-tabs">
     <button class="alumni-tab active" data-tab="phd">Former PhDs</button>
     <button class="alumni-tab" data-tab="postdoc">Former Postdocs</button>
-    <button class="alumni-tab" data-tab="research">Research Scientists</button>
   </div>
 
   <div class="alumni-list" id="alumni-list"></div>
+
+  <p class="alumni-foot">
+    The full alumni roster — including former research scientists, masters students, visiting scholars, and high-school interns — is available on the
+    <a href="https://vidal-lab.github.io/people.html" target="_blank" rel="noopener">legacy people page ↗</a>.
+  </p>
 </section>
 
+<!-- ────────────────  CTA  ──────────────── -->
 <section class="cta">
   <div class="cta-inner">
     <h2 class="cta-title">Looking to <em>join</em><br/>the lab?</h2>
@@ -111,7 +121,7 @@
         Email Prof. Vidal
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a class="btn btn-ghost btn-lg" href="rene-vidal.html">PI profile</a>
+      <a class="btn btn-ghost btn-lg" href="#">Open positions</a>
     </div>
   </div>
 </section>
@@ -121,19 +131,17 @@
   <div class="foot-grid">
     <div class="foot-col">
       <div class="foot-h">Vidal Lab</div>
-      <p>Vision, Dynamics &amp; Learning<br/>University of Pennsylvania<br/>Department of Electrical &amp; Systems Engineering</p>
-      <p class="mono">Philadelphia, PA</p>
+      <p>Vision, Dynamics & Learning<br/>University of Pennsylvania<br/>Department of Electrical & Systems Engineering</p>
+      <p class="mono">Philadelphia, PA — 39.9526°N 75.1652°W</p>
     </div>
     <div class="foot-col">
       <div class="foot-h">Sitemap</div>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="people.html">People</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="teaching.html">Teaching</a></li>
-        <li><a href="talks.html">Talks</a></li>
-        <li><a href="tutorials.html">Tutorials</a></li>
-        <li><a href="data-code.html">Data &amp; Code</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#talks">Talks</a></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -148,8 +156,19 @@
   </div>
 </footer>
 
-<script src="assets/js/people-data.js"></script>
-<script src="assets/js/design-people.js"></script>
-<script src="assets/js/page-shell.js"></script>
+<script src="people-data.js"></script>
+<script src="people.js"></script>
+<script>
+// nav More dropdown reuse
+(function(){
+  const more = document.querySelector('.nav-more');
+  if(!more) return;
+  const btn = more.querySelector('.nav-more-btn');
+  btn.addEventListener('click', (e) => { e.stopPropagation(); more.classList.toggle('open'); });
+  document.addEventListener('click', (e) => { if(!more.contains(e.target)) more.classList.remove('open'); });
+})();
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 12), { passive: true });
+</script>
 </body>
 </html>
