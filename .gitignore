@@ -1,4 +1,5 @@
 photos/
+.claude/
 
 # Created by https://www.toptal.com/developers/gitignore/api/jekyll,macos,vim,emacs,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=jekyll,macos,vim,emacs,visualstudiocode
