@@ -3,14 +3,15 @@ title: "René Vidal — Vidal Lab"
 page: rene-vidal
 
 name: "René Vidal"
-photo: "assets/img/headshots/rene-IMG_1176.jpg"
+photo: "assets/img/headshots/rene-penn-directory.jpg"
 email: "vidalr@seas.upenn.edu"
 office: "Amy Gutmann Hall, Room 609"
 
 titles:
-  - "Rachleff University Professor, Perelman School of Medicine and School of Engineering and Applied Science"
-  - "Penn AI Council, Co-Chair"
-  - "Innovation in Data Engineering and Science (IDEAS), Director"
+  - "Rachleff & PIK University Professor of ESE, Radiology, CIS, Statistics and Data Science"
+  - "School of Engineering & Applied Science, Perelman School of Medicine, Wharton School"
+  - "Director of the Center for Innovation in Data Engineering and Science (IDEAS)"
+  - "Co-Chair of PennAI"
   - "University of Pennsylvania"
 
 awards:
@@ -33,7 +34,7 @@ news:
 
 ## Biography
 
-René Vidal is the Rachleff and Penn Integrates Knowledge (PIK) University Professor of [Electrical and Systems Engineering](http://www.ese.upenn.edu/) & [Radiology](https://www.pennmedicine.org/for-patients-and-visitors/find-a-program-or-service/radiology) and the Director of the [Center for Innovation in Data Engineering and Science (IDEAS)](http://www.ideas.upenn.edu/) at the University of Pennsylvania. He is also the director of THEORINET, an [NSF-Simons Collaboration on the Mathematical Foundations of Deep Learning](https://www.minds.jhu.edu/theorinet/), an Amazon Scholar, and an Affiliated Chief Scientist at NORCE.
+René Vidal is the Rachleff and Penn Integrates Knowledge (PIK) University Professor of [Electrical and Systems Engineering](http://www.ese.upenn.edu/), [Radiology](https://www.pennmedicine.org/for-patients-and-visitors/find-a-program-or-service/radiology), [Computer and Information Science](https://www.cis.upenn.edu/), and [Statistics and Data Science](https://statistics.wharton.upenn.edu/) at the University of Pennsylvania, with appointments in the [School of Engineering and Applied Science](https://www.seas.upenn.edu/), [Perelman School of Medicine](https://www.med.upenn.edu/), and [Wharton School](https://www.wharton.upenn.edu/). He is the Director of the [Center for Innovation in Data Engineering and Science (IDEAS)](http://ideas.upenn.edu/) and Co-Chair of [PennAI](https://ai.upenn.edu/). He is also the director of THEORINET, an [NSF-Simons Collaboration on the Mathematical Foundations of Deep Learning](https://www.minds.jhu.edu/theorinet/), an Amazon Scholar, and an Affiliated Chief Scientist at NORCE.
 
 His current research focuses on the foundations of deep learning and trustworthy AI and its applications in computer vision and biomedical data science.
 

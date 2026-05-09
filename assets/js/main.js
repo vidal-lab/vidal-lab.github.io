@@ -29,12 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Group photo carousel
   const track = document.querySelector('.carousel-track');
   if (track) {
-    const images = track.querySelectorAll('img');
+    const slides = track.querySelectorAll('.carousel-slide, img');
     const dots = document.querySelectorAll('.carousel-dots button');
+    const count = track.querySelectorAll('.carousel-slide').length || track.querySelectorAll('img').length;
     let current = 0;
 
     function goTo(i) {
-      current = ((i % images.length) + images.length) % images.length;
+      current = ((i % count) + count) % count;
       track.style.transform = `translateX(-${current * 100}%)`;
       dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
     }

@@ -174,11 +174,22 @@ PAGE_END = '<script src="assets/js/main.js"></script>\n</body>\n</html>\n'
 # index.html
 # ---------------------------------------------------------------------------
 
-def build_index(data, _body):
-    photos = data.get("carousel_photos", [])
-    slides = "\n".join(
-        f'        <img src="{p}" alt="Vidal Lab Group Photo">' for p in photos
-    )
+def render_photo_carousel(photos):
+    """Group-photo carousel (used on People page)."""
+    if not photos:
+        return ""
+
+    def render_slide(p):
+        cap = p["caption"] if isinstance(p, dict) else ""
+        src = p["src"] if isinstance(p, dict) else p
+        cap_html = f'\n          <div class="carousel-caption">{e(cap)}</div>' if cap else ""
+        return (
+            '        <div class="carousel-slide">\n'
+            f'          <img src="{src}" alt="{e(cap or "Vidal Lab Group Photo")}">{cap_html}\n'
+            "        </div>"
+        )
+
+    slides = "\n".join(render_slide(p) for p in photos)
     dots = "\n".join(
         '        <button{cls} aria-label="Slide {n}"></button>'.format(
             cls=' class="active"' if i == 0 else "",
@@ -186,6 +197,104 @@ def build_index(data, _body):
         )
         for i, _ in enumerate(photos)
     )
+    return (
+        '<div class="container">\n'
+        '  <div class="group-carousel">\n'
+        '    <div class="carousel-track">\n'
+        + slides + "\n"
+        '    </div>\n'
+        '    <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>\n'
+        '    <button class="carousel-btn next" aria-label="Next">&#10095;</button>\n'
+        '    <div class="carousel-dots">\n'
+        + dots + "\n"
+        '    </div>\n'
+        '  </div>\n'
+        '</div>\n'
+    )
+
+
+def render_project_carousel(projects):
+    """Project-highlights carousel (used on Home page)."""
+    if not projects:
+        return ""
+
+    def render_slide(p):
+        venue = e(p.get("venue", ""))
+        title = e(p["title"])
+        subtitle = e(p.get("subtitle", ""))
+        authors = e(p["authors"])
+        desc = e(p.get("description", ""))
+        image = p["image"]
+        project_url = p.get("project_url", "")
+        paper_url = p.get("paper_url", "")
+
+        links = []
+        if project_url:
+            links.append(f'<a class="project-btn primary" href="{project_url}" target="_blank">Project Page &rarr;</a>')
+        if paper_url:
+            links.append(f'<a class="project-btn" href="{paper_url}" target="_blank">Paper</a>')
+        links_html = "".join(f"\n              {link}" for link in links)
+
+        subtitle_html = (
+            f'\n              <p class="project-subtitle">{subtitle}</p>' if subtitle else ""
+        )
+
+        return (
+            '        <div class="project-slide">\n'
+            f'          <div class="project-image" style="background-image:url(\'{image}\')"></div>\n'
+            '          <div class="project-info">\n'
+            f'            <span class="project-venue">{venue}</span>\n'
+            '            <div class="project-text">\n'
+            f'              <h3 class="project-title">{title}</h3>'
+            f'{subtitle_html}\n'
+            f'              <p class="project-authors">{authors}</p>\n'
+            f'              <p class="project-description">{desc}</p>\n'
+            '            </div>\n'
+            '            <div class="project-actions">'
+            f'{links_html}\n'
+            '            </div>\n'
+            '          </div>\n'
+            '        </div>'
+        )
+
+    slides = "\n".join(render_slide(p) for p in projects)
+    dots = "\n".join(
+        '          <button{cls} aria-label="Slide {n}"></button>'.format(
+            cls=' class="active"' if i == 0 else "",
+            n=i + 1,
+        )
+        for i, _ in enumerate(projects)
+    )
+
+    return (
+        '  <div class="container">\n'
+        '    <div class="project-carousel">\n'
+        '      <div class="carousel-track">\n'
+        + slides + "\n"
+        '      </div>\n'
+        '      <button class="carousel-btn prev" aria-label="Previous project">&#10094;</button>\n'
+        '      <button class="carousel-btn next" aria-label="Next project">&#10095;</button>\n'
+        '      <div class="carousel-dots">\n'
+        + dots + "\n"
+        '      </div>\n'
+        '    </div>\n'
+        '  </div>\n'
+    )
+
+
+def build_index(data, _body):
+    project_carousel_html = render_project_carousel(data.get("project_carousel", []))
+
+    about_html = md(data.get("about", ""))
+
+    scholar_url = data.get("scholar_url", "")
+    scholar_html = ""
+    if scholar_url:
+        scholar_html = (
+            '    <p class="scholar-link">\n'
+            f'      <a href="{scholar_url}" target="_blank">View the Vidal Lab on Google Scholar &rarr;</a>\n'
+            "    </p>\n"
+        )
 
     def render_news_item(n):
         return (
@@ -196,6 +305,26 @@ def build_index(data, _body):
         )
 
     news_html = "".join(render_news_item(n) for n in data.get("news", []))
+
+    def render_tutorial(t):
+        return (
+            '      <li>\n'
+            f'        <span class="venue">{e(t["venue"])}</span>\n'
+            f'        <a href="{t["url"]}" target="_blank">{e(t["title"])}</a>\n'
+            "      </li>\n"
+        )
+
+    tutorials_html = "".join(render_tutorial(t) for t in data.get("tutorials", []))
+
+    def render_data_code(d):
+        return (
+            '      <li>\n'
+            f'        <a href="{d["url"]}" target="_blank">{e(d["title"])}</a>\n'
+            f'        <p>{e(d.get("description", ""))}</p>\n'
+            "      </li>\n"
+        )
+
+    data_code_html = "".join(render_data_code(d) for d in data.get("data_code", []))
 
     def render_highlight(h):
         links = "".join(
@@ -240,23 +369,18 @@ def build_index(data, _body):
 </header>
 
 <main>
-  <!-- Group Photo Carousel -->
-  <div class="container">
-    <div class="group-carousel">
-      <div class="carousel-track">
+  <!-- Project Highlights Carousel -->
 """
-        + slides
+        + project_carousel_html
         + """
-      </div>
-      <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
-      <button class="carousel-btn next" aria-label="Next">&#10095;</button>
-      <div class="carousel-dots">
+  <!-- About -->
+  <section class="container about-section">
+    <h2>About Us</h2>
 """
-        + dots
-        + """
-      </div>
-    </div>
-  </div>
+        + about_html
+        + "\n"
+        + scholar_html
+        + """  </section>
 
   <!-- News -->
   <section class="container">
@@ -276,6 +400,24 @@ def build_index(data, _body):
         + highlights_html
         + """
     </div>
+  </section>
+
+  <!-- Tutorials -->
+  <section class="container tutorials-section">
+    <h2>Tutorials</h2>
+    <ul class="tutorials-list">
+"""
+        + tutorials_html
+        + """    </ul>
+  </section>
+
+  <!-- Data and Code -->
+  <section class="container data-code-section">
+    <h2>Data &amp; Code</h2>
+    <ul class="data-code-list">
+"""
+        + data_code_html
+        + """    </ul>
   </section>
 </main>
 
@@ -319,15 +461,24 @@ def render_person_card(person):
 
 def render_alumni_item(person):
     name = e(person["name"])
-    year_str = f" '{person['year']}" if person.get("year") else ""
     url = person.get("url", "")
     if url:
         target = ' target="_blank"' if is_external(url) else ""
-        return f'      <li><a href="{url}"{target}>{name}</a>{year_str}</li>'
-    return f"      <li>{name}{year_str}</li>"
+        name_html = f'<a href="{url}"{target}>{name}</a>'
+    else:
+        name_html = name
+
+    dates = person.get("dates") or person.get("year") or ""
+    dates_str = f' <span class="alumni-dates">({e(dates)})</span>' if dates else ""
+
+    note = person.get("note", "")
+    note_str = f' <span class="alumni-note">— {e(note)}</span>' if note else ""
+
+    return f'      <li>{name_html}{dates_str}{note_str}</li>'
 
 
 def build_people(data, _body):
+    photos_html = render_photo_carousel(data.get("carousel_photos", []))
     pi = data["pi"]
     pi_roles_html = "<br>\n        ".join(e(r) for r in pi.get("roles", []))
     pi_bio_html = e(pi.get("bio", ""))
@@ -353,9 +504,13 @@ def build_people(data, _body):
         )
 
     alumni_html = "\n".join([
+        render_alumni_section("Former Research Scientists", "former_research_scientists"),
         render_alumni_section("Former Post-doctoral Researchers", "former_postdocs"),
         render_alumni_section("Former PhD Students", "former_phd"),
         render_alumni_section("Former Masters Students", "former_masters"),
+        render_alumni_section("Visiting Graduate Students", "visiting_grad_students"),
+        render_alumni_section("Former Undergraduate, Intern, REU and Visiting Students", "former_undergrads_interns"),
+        render_alumni_section("High School Students", "high_school_students"),
         render_alumni_section("Former Undergraduate Students", "former_undergrads"),
         render_alumni_section("Former Interns / REU Students", "former_interns"),
         render_alumni_section("Visiting Students", "visiting_students"),
@@ -374,6 +529,9 @@ def build_people(data, _body):
   </div>
 </div>
 
+"""
+        + photos_html
+        + """
 <main class="container">
 
   <!-- Principal Investigator -->
