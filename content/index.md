@@ -95,31 +95,6 @@ project_carousel:
     image: assets/img/projects/edge_of_stability.png
     paper_url: "https://arxiv.org/abs/2510.17506"
 
-tutorials:
-  - title: "Foundations of Interpretable AI"
-    url: "https://achatto1.github.io/Foundations-of-Interpretable-AI/"
-    venue: "Tutorial"
-  - title: "ICCV 2025 Tutorial"
-    url: "https://iccv.thecvf.com/virtual/2025/tutorial/2853"
-    venue: "ICCV 2025"
-  - title: "CVPR 2025 Tutorial"
-    url: "https://cvpr.thecvf.com/virtual/2025/tutorial/35900"
-    venue: "CVPR 2025"
-  - title: "CPAL 2025 Tutorial"
-    url: "https://2025.cpal.cc/tutorial_info/"
-    venue: "CPAL 2025"
-
-data_code:
-  - title: "Vidal Lab Data"
-    url: "http://vision.jhu.edu/data/"
-    description: "Datasets and benchmarks released by the lab (Hopkins 155, MHAD, JHU-ISI gestures, and more). Migration to a Vidal Lab GitHub organization is in progress."
-  - title: "Vidal Lab Code"
-    url: "http://vision.jhu.edu/code/"
-    description: "Reference implementations for GPCA, Sparse Subspace Clustering, Dual Principal Component Pursuit, dynamical-systems distances, and other lab methods."
-  - title: "Vidal Lab on GitHub"
-    url: "https://github.com/vidal-lab"
-    description: "Active code releases from the Vidal Lab."
-
 news:
   - date: "Feb 2026"
     text: "New preprints on Hierarchical Concept Pursuit and ImageRAGTurbo."

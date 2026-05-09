@@ -5,12 +5,18 @@ page: talks
 sections:
   - heading: "Recent Conference Talks"
     talks:
+      - title: "Learning Dynamics in the Feature-Learning Regime"
+        venue: "CPAL Distinguished Lecture (online)"
+        date: "September 2025"
       - title: "Workshop on Video Large Language Models"
         venue: "CVPR 2025 Workshops, Nashville, TN"
         date: "June 2025"
       - title: "Invited Talk, 2nd Workshop on Foundation Models in the Wild"
         venue: "ICLR 2025 Workshop, Singapore"
         date: "April 2025"
+      - title: "Learning Dynamics of Overparametrized Neural Networks"
+        venue: "BIRS Workshop on Mathematics of Deep Learning, Banff, Canada"
+        date: "June 2024"
       - title: "Learning Dynamics of Overparametrized Networks"
         venue: "UPenn Optimization Seminar, Philadelphia, PA"
         date: "January 2024"

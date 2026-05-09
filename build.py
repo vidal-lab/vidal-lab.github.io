@@ -106,28 +106,55 @@ def render_head(title, css="assets/css/style.css"):
 
 
 def render_navbar(active):
-    pages = [
+    top_pages = [
         ("index.html",    "Home",     "index"),
         ("people.html",   "People",   "people"),
         ("research.html", "Research", "research"),
         ("teaching.html", "Teaching", "teaching"),
-        ("talks.html",    "Talks",    "talks"),
     ]
-    items = "\n".join(
+    more_pages = [
+        ("talks.html",     "Talks",         "talks"),
+        ("tutorials.html", "Tutorials",     "tutorials"),
+        ("data-code.html", "Data &amp; Code", "data-code"),
+    ]
+    more_keys = {key for _, _, key in more_pages}
+
+    items = [
         '      <li><a href="{href}"{cls}>{label}</a></li>'.format(
             href=href,
             cls=' class="active"' if key == active else "",
             label=label,
         )
-        for href, label, key in pages
+        for href, label, key in top_pages
+    ]
+
+    more_active = active in more_keys
+    toggle_cls = ' class="dropdown-toggle active"' if more_active else ' class="dropdown-toggle"'
+    sub_items = "\n".join(
+        '          <li><a href="{href}"{cls}>{label}</a></li>'.format(
+            href=href,
+            cls=' class="active"' if key == active else "",
+            label=label,
+        )
+        for href, label, key in more_pages
     )
+    items.append(
+        '      <li class="nav-dropdown">\n'
+        f'        <a href="#"{toggle_cls} aria-haspopup="true" aria-expanded="false">More <span class="dropdown-caret">&#9662;</span></a>\n'
+        '        <ul class="dropdown-menu">\n'
+        f"{sub_items}\n"
+        '        </ul>\n'
+        '      </li>'
+    )
+
+    items_html = "\n".join(items)
     return (
         '<nav class="navbar">\n'
         '  <div class="container">\n'
         '    <a href="index.html" class="navbar-brand">Vidal Lab <span>Vision, Dynamics &amp; Learning</span></a>\n'
         '    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>\n'
         '    <ul class="nav-links">\n'
-        f"{items}\n"
+        f"{items_html}\n"
         "    </ul>\n"
         "  </div>\n"
         "</nav>\n"
@@ -152,6 +179,8 @@ FOOTER = """\
           <li><a href="research.html">Research</a></li>
           <li><a href="teaching.html">Teaching</a></li>
           <li><a href="talks.html">Talks</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="data-code.html">Data &amp; Code</a></li>
         </ul>
       </div>
       <div>
@@ -306,26 +335,6 @@ def build_index(data, _body):
 
     news_html = "".join(render_news_item(n) for n in data.get("news", []))
 
-    def render_tutorial(t):
-        return (
-            '      <li>\n'
-            f'        <span class="venue">{e(t["venue"])}</span>\n'
-            f'        <a href="{t["url"]}" target="_blank">{e(t["title"])}</a>\n'
-            "      </li>\n"
-        )
-
-    tutorials_html = "".join(render_tutorial(t) for t in data.get("tutorials", []))
-
-    def render_data_code(d):
-        return (
-            '      <li>\n'
-            f'        <a href="{d["url"]}" target="_blank">{e(d["title"])}</a>\n'
-            f'        <p>{e(d.get("description", ""))}</p>\n'
-            "      </li>\n"
-        )
-
-    data_code_html = "".join(render_data_code(d) for d in data.get("data_code", []))
-
     def render_highlight(h):
         links = "".join(
             f'          <a href="{lk["url"]}" target="_blank">{e(lk["text"])}</a>\n'
@@ -360,15 +369,10 @@ def build_index(data, _body):
         + "\n"
         + render_navbar("index")
         + """
-<header class="hero">
-  <div class="container">
-    <h1>Vidal Lab</h1>
-    <p class="subtitle">Vision, Dynamics &amp; Learning Lab</p>
-    <p class="affiliation">University of Pennsylvania &middot; Department of Electrical and Systems Engineering</p>
-  </div>
-</header>
-
 <main>
+  <div class="container home-section-header">
+    <h2>Research Highlights</h2>
+  </div>
   <!-- Project Highlights Carousel -->
 """
         + project_carousel_html
@@ -400,24 +404,6 @@ def build_index(data, _body):
         + highlights_html
         + """
     </div>
-  </section>
-
-  <!-- Tutorials -->
-  <section class="container tutorials-section">
-    <h2>Tutorials</h2>
-    <ul class="tutorials-list">
-"""
-        + tutorials_html
-        + """    </ul>
-  </section>
-
-  <!-- Data and Code -->
-  <section class="container data-code-section">
-    <h2>Data &amp; Code</h2>
-    <ul class="data-code-list">
-"""
-        + data_code_html
-        + """    </ul>
   </section>
 </main>
 
@@ -793,6 +779,132 @@ def build_talks(data, _body):
 
 
 # ---------------------------------------------------------------------------
+# tutorials.html
+# ---------------------------------------------------------------------------
+
+def build_tutorials(data, _body):
+    def render_row(t):
+        year = e(str(t.get("year", "")))
+        title = e(t["title"])
+        venue = e(t.get("venue", ""))
+        url = t.get("url", "")
+        link = f'<a href="{url}" target="_blank">Page</a>' if url else "—"
+        return (
+            "        <tr>\n"
+            f"          <td>{year}</td>\n"
+            f"          <td>{title}</td>\n"
+            f"          <td>{venue}</td>\n"
+            f"          <td>{link}</td>\n"
+            "        </tr>"
+        )
+
+    def render_table(rows):
+        return (
+            '    <table class="teaching-table">\n'
+            "      <thead>\n"
+            "        <tr>\n"
+            "          <th>Year</th>\n"
+            "          <th>Title</th>\n"
+            "          <th>Venue</th>\n"
+            "          <th>Link</th>\n"
+            "        </tr>\n"
+            "      </thead>\n"
+            "      <tbody>\n"
+            + "\n".join(rows)
+            + "\n      </tbody>\n"
+            "    </table>\n"
+        )
+
+    tutorials_rows = [render_row(t) for t in data.get("tutorials", [])]
+    workshops_rows = [render_row(w) for w in data.get("workshops", [])]
+
+    tutorials_section = (
+        "  <section>\n"
+        "    <h2>Tutorials</h2>\n"
+        + render_table(tutorials_rows)
+        + "  </section>\n"
+    ) if tutorials_rows else ""
+
+    workshops_section = (
+        "\n  <section>\n"
+        "    <h2>Workshops Organized</h2>\n"
+        + render_table(workshops_rows)
+        + "  </section>\n"
+    ) if workshops_rows else ""
+
+    return (
+        render_head(data["title"])
+        + "\n"
+        + render_navbar("tutorials")
+        + """
+<div class="page-header">
+  <div class="container">
+    <h1>Tutorials &amp; Workshops</h1>
+    <p>Tutorials and workshops organized by Prof. René Vidal</p>
+  </div>
+</div>
+
+<main class="container">
+
+"""
+        + tutorials_section
+        + workshops_section
+        + """
+</main>
+
+"""
+        + FOOTER
+        + "\n"
+        + PAGE_END
+    )
+
+
+# ---------------------------------------------------------------------------
+# data-code.html
+# ---------------------------------------------------------------------------
+
+def build_data_code(data, _body):
+    def render_item(d):
+        return (
+            '      <li>\n'
+            f'        <a href="{d["url"]}" target="_blank">{e(d["title"])}</a>\n'
+            f'        <p>{e(d.get("description", ""))}</p>\n'
+            "      </li>\n"
+        )
+
+    items_html = "".join(render_item(d) for d in data.get("data_code", []))
+
+    return (
+        render_head(data["title"])
+        + "\n"
+        + render_navbar("data-code")
+        + """
+<div class="page-header">
+  <div class="container">
+    <h1>Data &amp; Code</h1>
+    <p>Datasets, benchmarks, and reference implementations released by the Vidal Lab</p>
+  </div>
+</div>
+
+<main class="container">
+
+  <section class="data-code-section">
+    <ul class="data-code-list">
+"""
+        + items_html
+        + """    </ul>
+  </section>
+
+</main>
+
+"""
+        + FOOTER
+        + "\n"
+        + PAGE_END
+    )
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -802,6 +914,8 @@ BUILDERS = {
     "rene-vidal": (build_rene_vidal, "rene-vidal.html"),
     "teaching":   (build_teaching,   "teaching.html"),
     "talks":      (build_talks,      "talks.html"),
+    "tutorials":  (build_tutorials,  "tutorials.html"),
+    "data-code":  (build_data_code,  "data-code.html"),
 }
 
 

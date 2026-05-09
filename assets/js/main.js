@@ -6,6 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', () => links.classList.toggle('open'));
   }
 
+  // Nav dropdowns (More menu)
+  document.querySelectorAll('.nav-dropdown').forEach(drop => {
+    const toggleLink = drop.querySelector('.dropdown-toggle');
+    if (!toggleLink) return;
+    toggleLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const open = drop.classList.toggle('open');
+      toggleLink.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.nav-dropdown.open').forEach(drop => {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('open');
+        const t = drop.querySelector('.dropdown-toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
   // Active nav link
   const path = window.location.pathname.replace(/\/$/, '');
   document.querySelectorAll('.nav-links a').forEach(a => {

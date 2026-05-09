@@ -19,20 +19,22 @@
       <li><a href="people.html">People</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="teaching.html">Teaching</a></li>
-      <li><a href="talks.html">Talks</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">More <span class="dropdown-caret">&#9662;</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="talks.html">Talks</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="data-code.html">Data &amp; Code</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="container">
-    <h1>Vidal Lab</h1>
-    <p class="subtitle">Vision, Dynamics &amp; Learning Lab</p>
-    <p class="affiliation">University of Pennsylvania &middot; Department of Electrical and Systems Engineering</p>
-  </div>
-</header>
-
 <main>
+  <div class="container home-section-header">
+    <h2>Research Highlights</h2>
+  </div>
   <!-- Project Highlights Carousel -->
   <div class="container">
     <div class="project-carousel">
@@ -391,48 +393,6 @@
 
     </div>
   </section>
-
-  <!-- Tutorials -->
-  <section class="container tutorials-section">
-    <h2>Tutorials</h2>
-    <ul class="tutorials-list">
-      <li>
-        <span class="venue">Tutorial</span>
-        <a href="https://achatto1.github.io/Foundations-of-Interpretable-AI/" target="_blank">Foundations of Interpretable AI</a>
-      </li>
-      <li>
-        <span class="venue">ICCV 2025</span>
-        <a href="https://iccv.thecvf.com/virtual/2025/tutorial/2853" target="_blank">ICCV 2025 Tutorial</a>
-      </li>
-      <li>
-        <span class="venue">CVPR 2025</span>
-        <a href="https://cvpr.thecvf.com/virtual/2025/tutorial/35900" target="_blank">CVPR 2025 Tutorial</a>
-      </li>
-      <li>
-        <span class="venue">CPAL 2025</span>
-        <a href="https://2025.cpal.cc/tutorial_info/" target="_blank">CPAL 2025 Tutorial</a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Data and Code -->
-  <section class="container data-code-section">
-    <h2>Data &amp; Code</h2>
-    <ul class="data-code-list">
-      <li>
-        <a href="http://vision.jhu.edu/data/" target="_blank">Vidal Lab Data</a>
-        <p>Datasets and benchmarks released by the lab (Hopkins 155, MHAD, JHU-ISI gestures, and more). Migration to a Vidal Lab GitHub organization is in progress.</p>
-      </li>
-      <li>
-        <a href="http://vision.jhu.edu/code/" target="_blank">Vidal Lab Code</a>
-        <p>Reference implementations for GPCA, Sparse Subspace Clustering, Dual Principal Component Pursuit, dynamical-systems distances, and other lab methods.</p>
-      </li>
-      <li>
-        <a href="https://github.com/vidal-lab" target="_blank">Vidal Lab on GitHub</a>
-        <p>Active code releases from the Vidal Lab.</p>
-      </li>
-    </ul>
-  </section>
 </main>
 
 <footer class="footer">
@@ -452,6 +412,8 @@
           <li><a href="research.html">Research</a></li>
           <li><a href="teaching.html">Teaching</a></li>
           <li><a href="talks.html">Talks</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="data-code.html">Data &amp; Code</a></li>
         </ul>
       </div>
       <div>
