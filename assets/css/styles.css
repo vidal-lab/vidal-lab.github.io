@@ -510,15 +510,23 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
 .hl-img{
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   display: block;
   z-index: 1;
+  padding: 24px;
 }
 .hl-visual .hl-meta{ z-index: 2; }
+.hl-visual:has(.hl-img){
+  background: var(--bg-warm, #f4f0e8);
+}
 .hl-visual:has(.hl-img)::before{
-  background: linear-gradient(to top, rgba(1,31,91,0.55), rgba(1,31,91,0) 60%);
-  z-index: 1;
-  pointer-events: none;
+  background: none;
+  z-index: 0;
+}
+.hl-visual:has(.hl-img) .hl-meta{
+  color: var(--ink, #0e1530);
+  opacity: 0.7;
 }
 .hl-meta{
   position: absolute; bottom: 24px; left: 28px; right: 28px;
