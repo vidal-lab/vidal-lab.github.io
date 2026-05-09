@@ -518,7 +518,7 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
 }
 .hl-visual .hl-meta{ z-index: 2; }
 .hl-visual:has(.hl-img){
-  background: var(--bg-warm, #f4f0e8);
+  background: #ffffff;
 }
 .hl-visual:has(.hl-img)::before{
   background: none;
