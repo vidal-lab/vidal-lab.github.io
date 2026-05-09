@@ -69,10 +69,9 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
 .brand{ display:flex; align-items:center; gap: 10px; font-family: var(--serif); font-size: 22px; line-height: 1; }
 .brand-mark{ color: var(--accent); display:inline-flex; transition: transform .8s ease; }
 .brand:hover .brand-mark{ transform: rotate(180deg); }
-.brand-word em{ font-style: italic; }
-.brand-word{ font-family: var(--sans); font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
-.brand-word em{ font-family: var(--serif); font-weight: 400; font-size: 22px; margin-right: 1px; }
-.brand-word sup{ font-size: 11px; color: var(--accent); margin-left: 2px; vertical-align: super; }
+.brand-word{ font-family: var(--serif); font-weight: 400; font-size: 22px; letter-spacing: -0.01em; line-height: 1; }
+.brand-word em{ font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 22px; margin-right: 2px; }
+.brand-word sup{ font-family: var(--sans); font-size: 11px; color: var(--accent); margin-left: 2px; vertical-align: super; }
 
 .nav-links{
   display: flex;
@@ -80,8 +79,6 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
   justify-self: end;
   font-size: 13px;
   font-weight: 500;
-  overflow-x: auto;
-  scrollbar-width: none;
   max-width: 100%;
   white-space: nowrap;
   padding: 4px;
@@ -89,7 +86,6 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
   border-radius: 999px;
   border: 1px solid var(--line-soft);
 }
-.nav-links::-webkit-scrollbar{ display: none; }
 .nav-links a,
 .nav-more-btn{
   display: inline-flex; align-items: baseline; gap: 6px;
@@ -182,7 +178,7 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
 /* ────────────────────────  HERO  ──────────────────────── */
 .hero{
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
   padding: 130px var(--pad-x) 60px;
   display: flex;
   flex-direction: column;
@@ -617,6 +613,8 @@ em{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spac
   gap: 12px;
   position: relative;
   transition: background .25s ease;
+  color: inherit;
+  text-decoration: none;
 }
 .pillar:hover{ background: var(--bg-warm); }
 .pillar-no{

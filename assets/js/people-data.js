@@ -2,7 +2,7 @@
 window.PI = {
   name: "René Vidal",
   url: "rene-vidal.html",
-  img: "assets/img/headshots/rene-penn-directory.jpg",
+  img: "https://directory.seas.upenn.edu/wp-content/uploads/2022/10/Vidal_Rene_Photo-e1666973953718.jpg",
   titles: [
     "Rachleff & PIK University Professor of ESE, Radiology, CIS, Statistics and Data Science",
     "School of Engineering & Applied Science · Perelman School of Medicine · Wharton School",
