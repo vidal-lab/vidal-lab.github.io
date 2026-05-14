@@ -265,10 +265,10 @@ body[data-page="people"] .nav{
 }
 .alumni-foot a{ color: var(--accent); border-bottom: 1px solid currentColor; }
 
-/* PI card: full-bleed on small screens, indented + framed on desktop */
+/* PI card: full-bleed on small screens, page-width on desktop */
 @media (min-width: 981px){
   .pi-card{
-    margin: 0 clamp(48px, 28vw, 520px);
+    margin: 0 var(--pad-x);
     border-radius: var(--r-lg);
     border-left: 1px solid var(--line);
     border-right: 1px solid var(--line);
